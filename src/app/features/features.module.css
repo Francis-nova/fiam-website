@@ -1,0 +1,24 @@
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 12px;
+  margin-top: 6px;
+}
+.step {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stepN { font-size: 13px; font-weight: 700; color: #53bc7b; }
+.stepT { font-size: 16px; font-weight: 700; }
+
+.tier { border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.tierHi { background: #53bc7b; color: #042323; }
+.tierN { font-size: 14px; font-weight: 700; color: #8fdead; }
+.tierTitle { font-size: 22px; font-weight: 700; }
+.tierBody { font-size: 15px; line-height: 1.5; color: rgba(255, 255, 255, 0.72); }
+.tierHi .tierN,
+.tierHi .tierBody { color: #042323; }

@@ -1,0 +1,34 @@
+.heroCopy {
+  padding-top: clamp(56px, 8vw, 104px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+
+.banner {
+  position: relative;
+  height: clamp(280px, 38vw, 460px);
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  background: #f1f1f1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(8px, 4vw, 64px);
+  padding: 24px 24px 0;
+}
+.banner img {
+  position: relative;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 48px;
+}
+.storyP { font-size: 18px; line-height: 1.65; color: #3a6662; text-wrap: pretty; }
+
+.num { font-size: 36px; font-weight: 700; color: #53bc7b; }
+
+.talkTitle { font-size: clamp(24px, 2.8vw, 34px); font-weight: 700; letter-spacing: -0.6px; }

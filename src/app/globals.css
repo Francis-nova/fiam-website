@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: #042323;
+  /* Product Sans is the brand face (licensed separately); Figtree is the self-hosted fallback. */
+  font-family: 'Product Sans', 'Google Sans', Figtree, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input { font-family: inherit; }
+
+a { color: #1f4c44; text-decoration: none; }
+a:hover { color: #53bc7b; }
+
+/* Keep anchored sections clear of the sticky nav. */
+[id] { scroll-margin-top: 80px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

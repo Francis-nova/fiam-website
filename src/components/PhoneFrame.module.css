@@ -1,0 +1,79 @@
+.frame {
+  position: relative;
+  flex: none;
+  background: #000909;
+}
+
+.screen {
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Home hero A: 390px app at zoom 0.8 */
+.hero {
+  width: 332px;
+  height: 560px;
+  border-radius: 44px 44px 0 0;
+  padding: 10px 10px 0;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+}
+.hero .screen { width: 312px; height: 550px; border-radius: 34px 34px 0 0; }
+
+/* Home hero B: same width, shorter */
+.heroB {
+  width: 332px;
+  height: 520px;
+  border-radius: 44px 44px 0 0;
+  padding: 10px 10px 0;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+}
+.heroB .screen { width: 312px; height: 510px; border-radius: 34px 34px 0 0; }
+
+/* Feature cards: 390px app at zoom 0.6154 */
+.card {
+  width: 256px;
+  height: 340px;
+  border-radius: 34px 34px 0 0;
+  padding: 8px 8px 0;
+}
+.card .screen { width: 240px; height: 332px; border-radius: 26px 26px 0 0; }
+
+/* Inner-page feature rows: 390px app at zoom 0.7128 */
+.section,
+.sectionTall {
+  width: 296px;
+  height: 480px;
+  border-radius: 40px 40px 0 0;
+  padding: 9px 9px 0;
+}
+.section .screen,
+.sectionTall .screen { width: 278px; height: 471px; border-radius: 31px 31px 0 0; }
+.sectionTall { height: 500px; }
+.sectionTall .screen { height: 491px; }
+
+/* Subtle edge so the phone reads on dark cards */
+.bordered {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
+}
+
+/* Home screen action card (390-space: x 20, y 380, 350×98) at hero scale 0.8, offset by the 10px bezel. */
+.actions {
+  position: absolute;
+  z-index: 3;
+  left: 26px;
+  top: 314px;
+  width: 280px;
+  height: 78.4px;
+  border-radius: 8px;
+  background-size: 312px auto;
+  background-position: -16px -304px;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 24px rgba(4, 35, 35, 0.12);
+}

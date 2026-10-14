@@ -1,0 +1,16 @@
+.list { display: flex; flex-direction: column; gap: 10px; }
+.item { background: #ffffff; border-radius: 10px; overflow: hidden; }
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.q { font-size: 16px; font-weight: 700; color: #042323; }
+.a { padding: 0 20px 20px; font-size: 15px; line-height: 1.6; color: #3a6662; text-wrap: pretty; }

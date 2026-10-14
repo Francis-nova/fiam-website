@@ -1,0 +1,165 @@
+/* Shared building blocks for the inner pages (Features, Security, Crypto, About, Help, Contact, legal). */
+
+/* ---------- section shells ---------- */
+.gradient { position: relative; overflow: hidden; background: linear-gradient(160deg, #1f4c44 0%, #042323 70%); }
+.dark { position: relative; overflow: hidden; background: #042323; color: #ffffff; }
+.white { background: #ffffff; }
+.gray { background: #f1f1f1; }
+
+.blob { position: absolute; border-radius: 9999px; }
+
+.wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+}
+.narrow { max-width: 880px; }
+
+/* Standard vertical rhythm */
+.padHero { padding-top: clamp(56px, 8vw, 104px); padding-bottom: clamp(56px, 8vw, 104px); }
+.padHeroSm { padding-top: clamp(56px, 8vw, 96px); padding-bottom: clamp(56px, 8vw, 96px); }
+.pad { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
+.padSm { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+
+.stack { display: flex; flex-direction: column; }
+.g12 { gap: 12px; }
+.g14 { gap: 14px; }
+.g18 { gap: 18px; }
+.g20 { gap: 20px; }
+.g32 { gap: 32px; }
+.g40 { gap: 40px; }
+.g48 { gap: 48px; }
+
+/* ---------- type ---------- */
+.eyebrow { font-size: 14px; font-weight: 700; color: #8fdead; letter-spacing: 0.4px; }
+.eyebrowGreen { color: #53bc7b; }
+
+.h1 {
+  font-size: clamp(38px, 5.4vw, 64px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -1.8px;
+  color: #ffffff;
+  text-wrap: balance;
+}
+.h1Sm {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1.6px;
+  color: #ffffff;
+  text-wrap: balance;
+}
+.lead { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.5; color: rgba(255, 255, 255, 0.78); }
+
+.h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  text-wrap: balance;
+}
+.body { font-size: 17px; line-height: 1.6; color: #3a6662; text-wrap: pretty; }
+.bodyOnDark { font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, 0.78); }
+.muted { color: #3a6662; }
+
+/* ---------- grids ---------- */
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 56px;
+  align-items: center;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+
+/* ---------- cards ---------- */
+.card {
+  background: #f1f1f1;
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cardOnGray { background: #ffffff; }
+.cardTitle { font-size: 20px; font-weight: 700; }
+.cardBody { font-size: 15px; line-height: 1.55; color: #3a6662; }
+
+.glassCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.iconTile {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #042323;
+  color: #8fdead;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checks { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+.check { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.5; }
+
+/* Phone on a coloured panel */
+.stage { display: flex; justify-content: center; border-radius: 10px; padding: 48px 24px 0; }
+.stageGray { background: #f1f1f1; }
+.stageDark { background: #042323; }
+
+/* ---------- links & buttons ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 15px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 8px 14px;
+  border-radius: 9999px;
+}
+.chip:hover { border-color: #ffffff; color: #ffffff; }
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.btnDark { background: #042323; color: #ffffff; }
+.btnDark:hover { background: #1f4c44; color: #ffffff; }
+.btnGreen { background: #53bc7b; color: #042323; padding: 12px 18px; }
+.btnGreen:hover { background: #8fdead; color: #042323; }
+.btnOnRed { background: #ffffff; color: #4c1f1f; }
+.btnOnRed:hover { background: #f1f1f1; color: #4c1f1f; }
+
+.soonPill {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  color: #042323;
+  background: #dda90c;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* Banner row: text left, button right */
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}

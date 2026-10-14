@@ -1,0 +1,121 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(4, 35, 35, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px clamp(20px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #042323;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 7px;
+  display: flex;
+}
+.logo img { width: 100%; height: 100%; object-fit: contain; }
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.desktop { display: none; align-items: center; gap: 4px; }
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.74);
+}
+.link:hover { color: #ffffff; }
+.link.active { color: #ffffff; background: rgba(255, 255, 255, 0.08); }
+
+.soon {
+  font-size: 12px;
+  font-weight: 700;
+  color: #042323;
+  background: #dda90c;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.actions { display: flex; align-items: center; gap: 10px; }
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #53bc7b;
+  color: #042323;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex: none;
+}
+.cta:hover { background: #8fdead; color: #042323; }
+
+.menuBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 8px clamp(20px, 4vw, 40px) 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.74);
+}
+.mobileLink:hover,
+.mobileLink.active { color: #ffffff; }
+
+.mobileLabel { display: flex; align-items: center; gap: 8px; }
+
+@media (min-width: 960px) {
+  .desktop { display: flex; }
+  .menuBtn,
+  .mobile { display: none; }
+}
