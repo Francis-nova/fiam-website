@@ -103,7 +103,7 @@ export function SiteFooter() {
           </span>
           <div className={s.makerText}>
             <span className={s.makerTitle}>Fiam Finance is a product of Awuya Digital Limited.</span>
-            <span className={s.makerSub}>Built and operated by Awuya Digital Limited, Nigeria.</span>
+            <span className={s.makerSub}>Built and operated by Awuya Digital Limited, {site.address}.</span>
           </div>
         </div>
 

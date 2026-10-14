@@ -26,6 +26,7 @@ const ICONS = [
   'solar:bill-list-bold',
   'solar:card-recive-bold',
   'solar:case-round-bold',
+  'solar:map-point-bold',
   'solar:chat-round-dots-bold',
   'solar:check-circle-bold',
   'solar:clipboard-check-bold',

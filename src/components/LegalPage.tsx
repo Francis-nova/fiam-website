@@ -1,7 +1,14 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import s from './LegalPage.module.css';
 
-export type LegalSection = { id: string; title: string; body: string };
+/** A paragraph, or a bulleted list. */
+export type LegalBlock = ReactNode | { list: ReactNode[] };
+export type LegalSection = { id: string; title: string; body: string | LegalBlock[] };
+
+function isList(b: LegalBlock): b is { list: ReactNode[] } {
+  return typeof b === 'object' && b !== null && 'list' in b;
+}
 
 /** Privacy / Terms layout: dark title band, sticky contents list, numbered sections. */
 export function LegalPage({
@@ -43,7 +50,19 @@ export function LegalPage({
                 <h2 className={s.h2}>
                   {i + 1}. {sec.title}
                 </h2>
-                <p className={s.p}>{sec.body}</p>
+                {(typeof sec.body === 'string' ? [sec.body] : sec.body).map((b, j) =>
+                  isList(b) ? (
+                    <ul key={j} className={s.ul}>
+                      {b.list.map((li, k) => (
+                        <li key={k}>{li}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p key={j} className={s.p}>
+                      {b}
+                    </p>
+                  ),
+                )}
               </div>
             ))}
           </div>

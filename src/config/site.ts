@@ -8,6 +8,8 @@ export const site = {
   /** Show the crypto "Coming soon" banner on the home page. */
   showCryptoTeaser: true,
 
+  address: 'Ikeja Town Square, Obafemi Awolowo Wy, Ikeja, 101233, Lagos',
+
   // TODO(launch): replace with the real Play Store listing and social profiles.
   playStoreUrl: '#',
   social: { x: '#', instagram: '#', linkedin: '#' },

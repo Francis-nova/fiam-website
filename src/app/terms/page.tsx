@@ -43,7 +43,7 @@ const sections: LegalSection[] = [
   {
     id: 'changes',
     title: 'Changes and contact',
-    body: 'We may update these terms and will tell you about significant changes in the app. Questions? Email legal@fiamwallet.com.',
+    body: 'We may update these terms and will tell you about significant changes in the app. Questions? Email hello@usefiam.com.',
   },
 ];
 

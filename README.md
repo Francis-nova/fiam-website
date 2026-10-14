@@ -42,7 +42,7 @@ The design asks for Product Sans, which must be licensed separately. Until it's 
 
 - `site.playStoreUrl` and the social links in `src/config/site.ts` are placeholders.
 - The waitlist, early-access and contact forms only show a confirmation; wire them to real backends (search for `TODO(launch)`).
-- The email addresses (support@, hello@, privacy@, legal@fiamwallet.com) are placeholders from the design.
+- Support is support@usefiam.com; general contact (including privacy and legal queries) is hello@usefiam.com.
 - Privacy policy and Terms of use are drafts and need legal review.
 - Account tier requirements (BVN, ID + selfie, proof of address), crypto networks and the "crypto needs a verified account" rule were assumptions in the design. Confirm with product.
 - "Built and operated by Awuya Digital Limited, Nigeria" in the footer was the designer's wording. Confirm it.

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { site } from '@/config/site';
 import { Icon } from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
 import x from '@/components/sections.module.css';
@@ -13,8 +14,9 @@ export const metadata: Metadata = {
 // TODO(launch): placeholder addresses from the design; replace with real mailboxes.
 const channels: { icon: IconName; title: string; detail: string; href?: string }[] = [
   { icon: 'solar:chat-round-dots-bold', title: 'Chat in the app', detail: 'Profile → Help & support' },
-  { icon: 'solar:letter-bold', title: 'Email support', detail: 'support@fiamwallet.com', href: 'mailto:support@fiamwallet.com' },
-  { icon: 'solar:case-round-bold', title: 'Partnerships & press', detail: 'hello@fiamwallet.com', href: 'mailto:hello@fiamwallet.com' },
+  { icon: 'solar:letter-bold', title: 'Email support', detail: 'support@usefiam.com', href: 'mailto:support@usefiam.com' },
+  { icon: 'solar:case-round-bold', title: 'Partnerships & press', detail: 'hello@usefiam.com', href: 'mailto:hello@usefiam.com' },
+  { icon: 'solar:map-point-bold', title: 'Visit us', detail: site.address },
 ];
 
 export default function ContactPage() {

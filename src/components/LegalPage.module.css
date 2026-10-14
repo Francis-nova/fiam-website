@@ -53,7 +53,10 @@
 .content { grid-column: span 2; display: flex; flex-direction: column; gap: 40px; max-width: 720px; }
 .section { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 96px; }
 .h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; }
-.p { font-size: 16px; line-height: 1.7; color: #3a6662; text-wrap: pretty; }
+.p, .ul { font-size: 16px; line-height: 1.7; color: #3a6662; text-wrap: pretty; }
+.p strong, .ul strong { color: #042323; }
+.p a, .ul a { text-decoration: underline; }
+.ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
 
 /* On narrow screens the grid is one column; `span 2` would create an implicit second track. */
 @media (max-width: 619px) {
