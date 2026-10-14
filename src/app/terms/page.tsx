@@ -53,7 +53,7 @@ export default function TermsPage() {
       title="Terms of use"
       updated="Last updated 10 October 2026 · Draft for legal review"
       sections={sections}
-      other={{ label: 'Privacy policy', href: '/privacy/' }}
+      other={{ label: 'Privacy policy', href: '/privacy-policy/' }}
     />
   );
 }

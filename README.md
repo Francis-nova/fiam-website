@@ -20,7 +20,7 @@ npm run build      # static site written to ./out — upload that folder to any 
 | `src/app/{features,security,crypto,about}/` | Content pages |
 | `src/app/help/HelpCentre.tsx` | Help centre with live search and grouped FAQs |
 | `src/app/contact/ContactForm.tsx` | Contact form with validation (no backend yet) |
-| `src/app/{privacy,terms}/` | Legal pages on the shared `LegalPage` layout (sticky contents list) |
+| `src/app/{privacy-policy,terms}/` | Legal pages on the shared `LegalPage` layout (sticky contents list) |
 | `src/components/SiteNav.tsx` | Sticky nav; collapses to a menu button below 960px; highlights the current page |
 | `src/components/SiteFooter.tsx` | CTA band, five link columns, Awuya Digital block, socials |
 | `src/components/sections.module.css` | Shared section, type, card and button styles for the inner pages |

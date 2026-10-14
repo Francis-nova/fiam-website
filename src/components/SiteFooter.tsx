@@ -46,9 +46,9 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: 'LEGAL',
     links: [
-      { label: 'Privacy policy', href: '/privacy/' },
+      { label: 'Privacy policy', href: '/privacy-policy/' },
       { label: 'Terms of use', href: '/terms/' },
-      { label: 'Cookies', href: '/privacy/#cookies' },
+      { label: 'Cookies', href: '/privacy-policy/#cookies' },
     ],
   },
 ];
