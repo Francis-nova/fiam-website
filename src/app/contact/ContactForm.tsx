@@ -11,6 +11,8 @@ export function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', topic: TOPICS[0], msg: '' });
   const [error, setError] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const field = (k: keyof typeof form) => ({
     value: form[k],
@@ -20,12 +22,25 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const ok = form.name.trim() && form.msg.trim() && EMAIL_RE.test(form.email);
     if (!ok) return setError(true);
-    // TODO(launch): send to the support inbox / helpdesk (no backend yet).
-    setSent(true);
+    setSending(true);
+    setFailed(false);
+    try {
+      const res = await fetch('/api/contact/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setSent(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (sent) {
@@ -67,8 +82,13 @@ export function ContactForm() {
             Please fill in every field with a valid email.
           </span>
         )}
-        <button type="submit" className={s.submit}>
-          Send message
+        {failed && (
+          <span className={s.error} role="alert">
+            Something went wrong. Please try again or email support@usefiam.com.
+          </span>
+        )}
+        <button type="submit" className={s.submit} disabled={sending}>
+          {sending ? 'Sending…' : 'Send message'}
         </button>
       </form>
     </>

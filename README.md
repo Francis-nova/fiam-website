@@ -2,14 +2,16 @@
 
 Marketing site for Fiam Finance (a product of Awuya Digital Limited), built from the Claude Design handoff in `../project/`: all nine pages (`Fiam Website`, `Features`, `Security`, `Crypto`, `About`, `Help`, `Contact`, `Privacy`, `Terms`) plus the shared `Site Nav` and `Site Footer`.
 
-Next.js 16 (App Router) + TypeScript + CSS Modules, exported as a fully static site.
+Next.js 16 (App Router) + TypeScript + CSS Modules, served by `next start` (the contact form posts to `/api/contact`, which sends mail through the Zoho ZeptoMail API).
 
 ## Run it
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm run build      # static site written to ./out — upload that folder to any static host
+npm run build      # production build; run with `npm start` on a Node host
+
+# Contact form env vars (see .env.example): ZEPTOMAIL_TOKEN, optional ZEPTOMAIL_FROM / CONTACT_TO / ZEPTOMAIL_API
 ```
 
 ## What's here

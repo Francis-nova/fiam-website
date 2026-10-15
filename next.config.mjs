@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Static marketing site: `next build` writes plain HTML/CSS/JS to ./out
-  output: 'export',
   trailingSlash: true,
   images: { unoptimized: true },
 };

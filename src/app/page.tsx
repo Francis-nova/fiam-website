@@ -51,7 +51,7 @@ function HeroSplit() {
             protected by your PIN.
           </p>
           <div className={s.heroButtons}>
-            <GooglePlayButton href="#download" />
+            <GooglePlayButton />
             <WaitlistButton href="#waitlist" />
           </div>
         </div>
@@ -77,7 +77,7 @@ function HeroCentered() {
           naira.
         </p>
         <div className={`${s.heroButtons} ${s.center}`}>
-          <GooglePlayButton href="#download" />
+          <GooglePlayButton />
           <WaitlistButton href="#waitlist" />
         </div>
         <div className={s.heroBVisual}>

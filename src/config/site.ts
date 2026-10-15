@@ -10,8 +10,8 @@ export const site = {
 
   address: 'Ikeja Town Square, Obafemi Awolowo Wy, Ikeja, 101233, Lagos',
 
-  // TODO(launch): replace with the real Play Store listing and social profiles.
-  playStoreUrl: '#',
+  // TODO(launch): replace with the real social profiles.
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.usefiam',
   social: { x: '#', instagram: '#', linkedin: '#' },
 };
 

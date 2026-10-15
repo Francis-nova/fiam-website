@@ -69,7 +69,7 @@ export function SiteFooter() {
             <span className={s.ctaSub}>Free on Android. iPhone coming soon.</span>
           </div>
           <div className={s.ctaButtons}>
-            <GooglePlayButton size="md" href="/#download" />
+            <GooglePlayButton size="md" />
             <WaitlistButton size="md" />
           </div>
         </div>
