@@ -3,6 +3,7 @@
  */
 export const site = {
   name: 'Fiam Finance',
+  url: 'https://usefiam.com',
   /** 'A' = split hero (headline left, phone right), 'B' = centered hero. */
   heroVariant: 'A' as 'A' | 'B',
   /** Show the crypto "Coming soon" banner on the home page. */
