@@ -57,3 +57,4 @@
 @media (max-width: 480px) {
   .button { flex: 1 1 100%; }
 }
+.button:disabled { opacity: 0.7; pointer-events: none; }

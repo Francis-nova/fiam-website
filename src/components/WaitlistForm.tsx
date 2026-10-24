@@ -24,12 +24,28 @@ export function WaitlistForm({
   const [email, setEmail] = useState('');
   const [error, setError] = useState(false);
   const [joined, setJoined] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!EMAIL_RE.test(email)) return setError(true);
-    // TODO(launch): POST to the waitlist backend (none exists yet).
-    setJoined(true);
+    if (!EMAIL_RE.test(email.trim())) return setError(true);
+    setSending(true);
+    setFailed(false);
+    try {
+      // The crypto variant signs up to the crypto early-access list; otherwise the iPhone waitlist.
+      const res = await fetch('/api/waitlist/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), list: variant === 'crypto' ? 'crypto' : 'iphone' }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setJoined(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (joined) {
@@ -58,13 +74,18 @@ export function WaitlistForm({
           }}
           className={s.input}
         />
-        <button type="submit" className={s.button}>
-          {buttonLabel}
+        <button type="submit" className={s.button} disabled={sending}>
+          {sending ? 'Joining…' : buttonLabel}
         </button>
       </form>
       {error && (
         <span id={errorId} className={s.error}>
           Enter a valid email address.
+        </span>
+      )}
+      {failed && (
+        <span className={s.error} role="alert">
+          Something went wrong. Please try again in a moment.
         </span>
       )}
     </>

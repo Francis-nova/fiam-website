@@ -16,6 +16,7 @@ export function WaitlistDialog() {
   const [error, setError] = useState('');
   const [sending, setSending] = useState(false);
   const [joined, setJoined] = useState('');
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -23,6 +24,7 @@ export function WaitlistDialog() {
       if (!trigger || !dlg.current) return;
       e.preventDefault();
       setError('');
+      setFailed(false);
       setJoined('');
       dlg.current.showModal();
       setTimeout(() => nameRef.current?.focus(), 50);
@@ -43,9 +45,20 @@ export function WaitlistDialog() {
       return;
     }
     setSending(true);
-    // TODO(launch): POST { name, email } to the waitlist backend (none exists yet).
-    await new Promise((r) => setTimeout(r, 600));
-    setSending(false);
+    setFailed(false);
+    try {
+      const res = await fetch('/api/waitlist/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: nameRef.current?.value.trim() ?? '', email, list: 'iphone' }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+    } catch {
+      setFailed(true);
+      return;
+    } finally {
+      setSending(false);
+    }
     setJoined(email);
     form.reset();
     setTimeout(() => doneRef.current?.focus(), 0);
@@ -102,6 +115,11 @@ export function WaitlistDialog() {
                   {error}
                 </span>
               </div>
+              {failed && (
+                <span className={s.err} role="alert">
+                  Something went wrong. Please try again in a moment.
+                </span>
+              )}
               <button className={`${u.btn} ${u.btnGreen}`} type="submit" disabled={sending}>
                 {sending ? 'Joining…' : 'Join the waitlist'}
               </button>
