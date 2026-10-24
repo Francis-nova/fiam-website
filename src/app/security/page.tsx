@@ -36,7 +36,7 @@ export default function SecurityPage() {
         />
         <div className={`${x.wrap} ${x.padHero} ${x.split}`} style={{ gap: 48 }}>
           <div className={`${x.stack} ${x.g20}`}>
-            <span className={x.eyebrow}>SECURITY</span>
+            <span className={x.eyebrow}>Security</span>
             <h1 className={x.h1}>Nothing moves without you.</h1>
             <p className={x.lead} style={{ maxWidth: 520 }}>
               Every step that touches your money is built to make sure it&apos;s really you, and that you meant it.
@@ -57,7 +57,7 @@ export default function SecurityPage() {
           <div className={x.cards}>
             {protections.map((p) => (
               <div key={p.title} className={x.card}>
-                <Icon name={p.icon} size={28} color="#1F4C44" />
+                <Icon name={p.icon} size={28} color="var(--green)" />
                 <span className={x.cardTitle}>{p.title}</span>
                 <span className={x.cardBody}>{p.body}</span>
               </div>
@@ -69,7 +69,7 @@ export default function SecurityPage() {
       <section id="tips" className={x.gray}>
         <div className={`${x.wrap} ${x.pad} ${s.tipsGrid}`}>
           <div className={`${x.stack} ${x.g14}`}>
-            <span className={`${x.eyebrow} ${x.eyebrowGreen}`}>STAYING SAFE</span>
+            <span className={`${x.eyebrow} ${x.eyebrowGreen}`}>Staying safe</span>
             <h2 className={x.h2}>Fiam will never ask for your PIN.</h2>
             <p className={x.body}>Not by phone, email, SMS or social media. If someone does, it isn&apos;t us.</p>
           </div>

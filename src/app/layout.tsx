@@ -4,10 +4,12 @@ import '@fontsource/figtree/700.css';
 import './globals.css';
 import { SiteNav } from '@/components/SiteNav';
 import { SiteFooter } from '@/components/SiteFooter';
+import { WaitlistDialog } from '@/components/WaitlistDialog';
+import { RevealObserver } from '@/components/RevealObserver';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Fiam Finance · Send, fund and track your naira',
+    default: 'Fiam Finance · Your naira, calm and in control',
     template: '%s · Fiam Finance',
   },
   description:
@@ -18,18 +20,29 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
   themeColor: '#042323',
 };
 
+// Apply the saved theme before first paint so light-mode visitors don't see a dark flash.
+const themeScript = `try{var t=localStorage.getItem('fiam-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <SiteNav />
-          <main style={{ flex: 1 }}>{children}</main>
+          <main id="top" style={{ flex: 1 }}>
+            {children}
+          </main>
           <SiteFooter />
         </div>
+        <WaitlistDialog />
+        <RevealObserver />
       </body>
     </html>
   );

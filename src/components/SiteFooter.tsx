@@ -1,25 +1,23 @@
 import Link from 'next/link';
 import { site } from '@/config/site';
-import { Icon } from './Icon';
-import { GooglePlayButton, WaitlistButton } from './StoreButtons';
+import { Logo } from './Glyph';
+import u from './ui.module.css';
 import s from './SiteFooter.module.css';
 
-type FooterLink = { label: string; href: string; soon?: boolean };
-
-const columns: { title: string; links: FooterLink[] }[] = [
+const columns: { title: string; links: { label: string; href: string }[] }[] = [
   {
-    title: 'PRODUCT',
+    title: 'Product',
     links: [
       { label: 'Features', href: '/features/' },
-      { label: 'Fund your wallet', href: '/features/#fund' },
-      { label: 'Send money', href: '/features/#send' },
-      { label: 'Transaction history', href: '/features/#history' },
-      { label: 'Account tiers & limits', href: '/features/#limits' },
-      { label: 'Crypto', href: '/crypto/', soon: true },
+      { label: 'Funding', href: '/features/#fund' },
+      { label: 'Sending', href: '/features/#send' },
+      { label: 'History', href: '/features/#history' },
+      { label: 'Tiers & limits', href: '/features/#limits' },
+      { label: 'Crypto', href: '/crypto/' },
     ],
   },
   {
-    title: 'TRUST',
+    title: 'Trust',
     links: [
       { label: 'Security', href: '/security/' },
       { label: 'Staying safe', href: '/security/#tips' },
@@ -27,24 +25,23 @@ const columns: { title: string; links: FooterLink[] }[] = [
     ],
   },
   {
-    title: 'COMPANY',
+    title: 'Company',
     links: [
       { label: 'About us', href: '/about/' },
-      { label: 'What we believe', href: '/about/#values' },
+      { label: 'Values', href: '/about/#values' },
       { label: 'Contact', href: '/contact/' },
     ],
   },
   {
-    title: 'SUPPORT',
+    title: 'Support',
     links: [
       { label: 'Help centre', href: '/help/' },
       { label: 'Getting started', href: '/help/#account' },
       { label: 'Transfers', href: '/help/#transfers' },
-      { label: 'Get in touch', href: '/contact/' },
     ],
   },
   {
-    title: 'LEGAL',
+    title: 'Legal',
     links: [
       { label: 'Privacy policy', href: '/privacy-policy/' },
       { label: 'Terms of use', href: '/terms/' },
@@ -53,69 +50,39 @@ const columns: { title: string; links: FooterLink[] }[] = [
   },
 ];
 
-const socials = [
-  { label: 'X', href: site.social.x, icon: 'ri:twitter-x-fill', size: 16 },
-  { label: 'Instagram', href: site.social.instagram, icon: 'ri:instagram-line', size: 17 },
-  { label: 'LinkedIn', href: site.social.linkedin, icon: 'ri:linkedin-fill', size: 16 },
-] as const;
-
 export function SiteFooter() {
   return (
-    <footer className={s.footer}>
-      <div className={s.inner}>
-        <div className={s.cta}>
-          <div className={s.ctaText}>
-            <span className={s.ctaTitle}>Your naira, calm and in control.</span>
-            <span className={s.ctaSub}>Free on Android. iPhone coming soon.</span>
-          </div>
-          <div className={s.ctaButtons}>
-            <GooglePlayButton size="md" />
-            <WaitlistButton size="md" />
-          </div>
-        </div>
-
-        <div className={s.grid}>
-          <div className={s.brandCol}>
+    <footer id="footer" className={s.footer}>
+      <div className={`${u.wrap} ${s.inner}`}>
+        <div className={s.top}>
+          <div className={s.about}>
             <Link href="/" className={s.brand}>
-              <span className={s.logo}>
-                <img src="/images/fiam-logo.png" alt="" width={22} height={22} />
-              </span>
-              <span className={s.name}>Fiam Finance</span>
+              <Logo />
+              Fiam
             </Link>
-            <span className={s.tagline}>Send, fund and track your naira in one calm wallet.</span>
+            <p>
+              A naira wallet for funding, sending and tracking your money. A product of Awuya Digital Limited, {site.address}.
+            </p>
           </div>
           {columns.map((col) => (
-            <div key={col.title} className={s.col}>
-              <span className={s.colTitle}>{col.title}</span>
-              {col.links.map((l) => (
-                <Link key={l.label} href={l.href} className={s.link}>
-                  {l.label}
-                  {l.soon && <span className={s.soon}>Soon</span>}
-                </Link>
-              ))}
+            <div key={col.title}>
+              <h4>{col.title}</h4>
+              <ul>
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href}>{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
-
-        <div className={s.maker}>
-          <span className={s.makerLogo}>
-            <img src="/images/awuya-digital.png" alt="Awuya Digital" width={87} height={44} />
-          </span>
-          <div className={s.makerText}>
-            <span className={s.makerTitle}>Fiam Finance is a product of Awuya Digital Limited.</span>
-            <span className={s.makerSub}>Built and operated by Awuya Digital Limited, {site.address}.</span>
-          </div>
-        </div>
-
         <div className={s.bottom}>
-          <span className={s.copy}>© 2026 Awuya Digital Limited. All rights reserved.</span>
-          <div className={s.socials}>
-            {socials.map((x) => (
-              <a key={x.label} href={x.href} aria-label={x.label} className={s.social}>
-                <Icon name={x.icon} size={x.size} color="#FFFFFF" />
-              </a>
-            ))}
-          </div>
+          <span>© 2026 Awuya Digital Limited. All rights reserved.</span>
+          <span>usefiam.com</span>
+        </div>
+        <div className={s.wordmark} aria-hidden="true">
+          fiam
         </div>
       </div>
     </footer>

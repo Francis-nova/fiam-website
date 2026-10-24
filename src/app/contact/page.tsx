@@ -24,7 +24,7 @@ export default function ContactPage() {
     <>
       <section className={x.gradient}>
         <div className={`${x.wrap} ${x.padHeroSm} ${x.stack} ${x.g20}`}>
-          <span className={x.eyebrow}>CONTACT</span>
+          <span className={x.eyebrow}>Contact</span>
           <h1 className={x.h1Sm} style={{ maxWidth: 720 }}>
             We&apos;re here when you need us.
           </h1>
@@ -40,7 +40,7 @@ export default function ContactPage() {
             {channels.map((c) => {
               const inner = (
                 <>
-                  <Icon name={c.icon} size={26} color="#1F4C44" />
+                  <Icon name={c.icon} size={26} color="var(--green)" />
                   <div className={x.stack} style={{ gap: 4 }}>
                     <span className={s.channelTitle}>{c.title}</span>
                     <span className={s.channelDetail}>{c.detail}</span>

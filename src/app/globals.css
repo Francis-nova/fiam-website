@@ -1,3 +1,112 @@
+/* Product Sans is the brand face; Figtree (self-hosted via @fontsource) is the fallback. */
+@font-face {
+  font-family: 'Product Sans';
+  src: url('/fonts/ProductSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Product Sans';
+  src: url('/fonts/ProductSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tokens from Fiam UI v1.0. Dark is the default; light is opt-in via the nav toggle (data-theme on <html>). */
+:root {
+  --green: #53bc7b;
+  --green-2: #5ac483;
+  --green-light: #8fdead;
+  --green-dark: #105455;
+  --green-darker: #042323;
+  --teal: #3a6662;
+  --teal-dark: #1f4c44;
+  --yellow: #ffbf00;
+  --yellow-bg: #fdf7ec;
+  --yellow-dark: #6b5500;
+  --success: #34c759;
+  --error: #bc5355;
+  --danger-bg: #4c1f1f;
+
+  /* dark (default) */
+  --bg: #042323;
+  --band: #062c2b;
+  --card: #0b3532;
+  --card-2: #0b3532;
+  --ink: #ffffff;
+  --ink-2: #d3e2de;
+  --muted: #9fb8b2;
+  --line: rgba(255, 255, 255, 0.09);
+  --btn-dark: #53bc7b;
+  --btn-dark-ink: #042323;
+  --btn-soft: #1f4c44;
+  --btn-soft-ink: #ffffff;
+  --glow-a: rgba(83, 188, 123, 0.3);
+  --glow-b: rgba(143, 222, 173, 0.1);
+  --ring: rgba(143, 222, 173, 0.1);
+  --nav-bg: rgba(4, 35, 35, 0.78);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 36px -14px rgba(0, 0, 0, 0.6);
+  --cta-a: #0b3532;
+  --cta-b: #105455;
+  --cta-ink: #ffffff;
+  --toggle-bg: #0b3532;
+  --toggle-ink: #8fdead;
+  --cta-btn2: #ffffff;
+  --cta-btn2-ink: #042323;
+  --band-bg: #8fdead;
+  --band-ink: #042323;
+  --band-muted: #1f4c44;
+  --foot-bg: #021716;
+  --foot-ink: #ffffff;
+  --foot-muted: #9fb8b2;
+  --ph-bg: #f1f1f1;
+  --ph-card: #ffffff;
+  --ph-ink: #000909;
+  --ph-muted: #7f7f7f;
+  --ph-line: #ebedf0;
+  --ph-frame: #0b1716;
+
+  --font: 'Product Sans', 'Google Sans', Figtree, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --r: 10px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --w: 1180px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  color-scheme: dark;
+}
+
+/* light: white with a touch of Fiam green */
+:root[data-theme='light'] {
+  --bg: #ffffff;
+  --band: #f5faf7;
+  --card: #ffffff;
+  --card-2: #f7fbf8;
+  --ink: #000909;
+  --ink-2: #3d4746;
+  --muted: #6b7472;
+  --line: #e6eee9;
+  --btn-dark: #105455;
+  --btn-dark-ink: #ffffff;
+  --btn-soft: #edf6f0;
+  --btn-soft-ink: #000909;
+  --glow-a: rgba(143, 222, 173, 0.55);
+  --glow-b: rgba(205, 244, 190, 0.55);
+  --ring: rgba(83, 188, 123, 0.45);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --shadow: 0 1px 2px rgba(4, 35, 35, 0.05), 0 12px 32px -12px rgba(4, 35, 35, 0.16);
+  --cta-a: #f3fbf6;
+  --cta-b: #c6f0d4;
+  --cta-ink: #000909;
+  --toggle-bg: #edf6f0;
+  --toggle-ink: #105455;
+  --cta-btn2: #53bc7b;
+  --cta-btn2-ink: #042323;
+  --foot-bg: #042323;
+  color-scheme: light;
+}
+
 *,
 *::before,
 *::after {
@@ -9,22 +118,51 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #ffffff;
-  color: #042323;
-  /* Product Sans is the brand face (licensed separately); Figtree is the self-hosted fallback. */
-  font-family: 'Product Sans', 'Google Sans', Figtree, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.35s, color 0.35s;
+}
+/* Paint the notch area on iOS so content doesn't show through it. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 60;
+  background: var(--bg);
 }
 
 button,
-input { font-family: inherit; }
+input,
+select,
+textarea { font-family: inherit; }
 
-a { color: #1f4c44; text-decoration: none; }
-a:hover { color: #53bc7b; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance; }
+
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 6px; }
 
 /* Keep anchored sections clear of the sticky nav. */
 [id] { scroll-margin-top: 80px; }
 
+/* Scroll reveal: content is visible at rest; RevealObserver adds .play as it enters. */
+[data-rv].play { animation: rise 0.8s var(--ease) both; }
+@keyframes rise {
+  from { transform: translateY(22px); opacity: 0.35; }
+  to { transform: none; opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }

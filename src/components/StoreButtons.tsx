@@ -1,28 +1,25 @@
-import { Icon } from './Icon';
 import { site } from '@/config/site';
-import s from './StoreButtons.module.css';
+import { Glyph } from './Glyph';
+import u from './ui.module.css';
 
-type Size = 'lg' | 'md';
-
-export function GooglePlayButton({ size = 'lg', href = site.playStoreUrl }: { size?: Size; href?: string }) {
+export function GooglePlayButton({ className = '' }: { className?: string }) {
   return (
-    <a href={href} className={`${s.btn} ${s[size]} ${s.solid}`}>
-      <Icon name="logos:google-play-icon" className={s.icon} />
-      <span className={s.label}>
-        <span className={s.small}>Get it on</span>
-        <span className={s.big}>Google Play</span>
+    <a className={`${u.btn} ${u.btnDark} ${className}`} href={site.playStoreUrl} target="_blank" rel="noopener">
+      <Glyph name="play" />
+      <span className={u.stack}>
+        <small>Get it on</small>Google Play
       </span>
     </a>
   );
 }
 
-export function WaitlistButton({ size = 'lg', href = '/#waitlist' }: { size?: Size; href?: string }) {
+/** Opens the iPhone waitlist dialog (see WaitlistDialog); falls back to the home page CTA without JS. */
+export function WaitlistButton({ tone = 'soft', className = '' }: { tone?: 'soft' | 'green'; className?: string }) {
   return (
-    <a href={href} className={`${s.btn} ${s[size]} ${s.outline}`}>
-      <Icon name="mdi:apple" className={s.icon} />
-      <span className={s.label}>
-        <span className={s.small}>iPhone</span>
-        <span className={s.big}>Join the waitlist</span>
+    <a className={`${u.btn} ${tone === 'green' ? u.btnGreen : u.btnSoft} ${className}`} href="/#get" data-waitlist>
+      <Glyph name="apple" />
+      <span className={u.stack}>
+        <small>iPhone</small>Join the waitlist
       </span>
     </a>
   );

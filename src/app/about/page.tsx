@@ -20,7 +20,7 @@ export default function AboutPage() {
     <>
       <section className={x.gradient}>
         <div className={`${x.wrap} ${x.stack} ${x.g20} ${s.heroCopy}`}>
-          <span className={x.eyebrow}>ABOUT FIAM</span>
+          <span className={x.eyebrow}>About Fiam</span>
           <h1 className={x.h1} style={{ maxWidth: 820 }}>
             Money in Nigeria should feel calm.
           </h1>
@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section id="values" className={x.gray}>
         <div className={`${x.wrap} ${x.pad} ${x.stack} ${x.g40}`}>
           <div className={`${x.stack} ${x.g14}`}>
-            <span className={`${x.eyebrow} ${x.eyebrowGreen}`}>WHAT WE BELIEVE</span>
+            <span className={`${x.eyebrow} ${x.eyebrowGreen}`}>What we believe</span>
             <h2 className={x.h2} style={{ textWrap: 'initial' }}>
               Three promises
             </h2>

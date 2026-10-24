@@ -1,12 +1,19 @@
 .art {
   position: relative;
   height: clamp(300px, 34vw, 420px);
-  border-radius: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
   overflow: hidden;
-  background: linear-gradient(160deg, #1f4c44 0%, #0b302e 100%);
+  background: var(--card);
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+.art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 55% at 50% 75%, var(--glow-a), transparent 70%);
 }
 .art img { position: relative; height: 92%; width: auto; }
 
@@ -17,8 +24,9 @@
 }
 .tips { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .tip {
-  background: #ffffff;
-  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
   padding: 18px 20px;
   display: flex;
   gap: 14px;
@@ -26,8 +34,8 @@
   font-size: 16px;
   line-height: 1.5;
 }
-.tipN { font-size: 15px; font-weight: 700; color: #53bc7b; flex: none; }
+.tipN { font-size: 15px; font-weight: 700; color: var(--green); flex: none; }
 
-.report { background: #4c1f1f; border-radius: 10px; padding: clamp(28px, 4vw, 44px); }
-.reportTitle { font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; color: #ffffff; letter-spacing: -0.5px; }
+.report { background: var(--danger-bg); border-radius: var(--r-xl); padding: clamp(28px, 4vw, 44px); }
+.reportTitle { font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; color: #ffffff; letter-spacing: -0.02em; }
 .reportBody { font-size: 16px; line-height: 1.5; color: rgba(255, 255, 255, 0.8); }

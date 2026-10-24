@@ -56,7 +56,7 @@ export default function FeaturesPage() {
       <section className={x.gradient}>
         <div className={x.blob} style={{ top: -200, right: -160, width: 560, height: 560, background: 'rgba(83,188,123,0.13)' }} />
         <div className={`${x.wrap} ${x.padHero} ${x.stack} ${x.g20}`}>
-          <span className={x.eyebrow}>FEATURES</span>
+          <span className={x.eyebrow}>Features</span>
           <h1 className={x.h1} style={{ maxWidth: 760 }}>
             The essentials, done properly.
           </h1>
@@ -136,7 +136,7 @@ export default function FeaturesPage() {
       <section id="limits" className={x.dark}>
         <div className={`${x.wrap} ${x.pad} ${x.stack} ${x.g40}`}>
           <div className={`${x.stack} ${x.g14}`} style={{ maxWidth: 640 }}>
-            <span className={x.eyebrow}>ACCOUNT TIERS</span>
+            <span className={x.eyebrow}>Account tiers</span>
             <h2 className={x.h2}>Start small. Grow your limits as you go.</h2>
             <p className={x.bodyOnDark}>
               Verify more about yourself to unlock higher daily limits. Upgrading takes a few minutes in the app.

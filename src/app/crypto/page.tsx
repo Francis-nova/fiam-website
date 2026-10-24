@@ -99,7 +99,7 @@ export default function CryptoPage() {
           <div className={x.cards}>
             {abilities.map((a) => (
               <div key={a.title} className={x.card}>
-                <Icon name={a.icon} size={28} color="#1F4C44" />
+                <Icon name={a.icon} size={28} color="var(--green)" />
                 <span className={x.cardTitle}>{a.title}</span>
                 <span className={x.cardBody}>{a.body}</span>
               </div>
@@ -145,7 +145,7 @@ export default function CryptoPage() {
           </div>
           <div className={`${x.stack} ${x.g20}`}>
             <span className={`${s.tag} ${s.tagGray}`}>
-              <Icon name="solar:arrow-up-bold" size={16} color="#DDA90C" />
+              <Icon name="solar:arrow-up-bold" size={16} color="var(--yellow)" />
               PAYOUT
             </span>
             <h2 className={x.h2}>Send crypto out, with no surprises.</h2>
@@ -156,7 +156,7 @@ export default function CryptoPage() {
             <div className={s.payoutGrid}>
               {payoutSteps.map((p) => (
                 <div key={p.title} className={s.payoutStep}>
-                  <Icon name={p.icon} size={22} color="#1F4C44" />
+                  <Icon name={p.icon} size={22} color="var(--green)" />
                   <span className={s.payoutT}>{p.title}</span>
                   <span className={s.payoutB}>{p.body}</span>
                 </div>
@@ -169,7 +169,7 @@ export default function CryptoPage() {
       <section className={x.dark}>
         <div className={`${x.wrap} ${x.pad} ${x.stack}`} style={{ gap: 36 }}>
           <div className={`${x.stack} ${x.g14}`} style={{ maxWidth: 640 }}>
-            <span className={x.eyebrow}>SUPPORTED AT LAUNCH</span>
+            <span className={x.eyebrow}>Supported at launch</span>
             <h2 className={x.h2}>Coins and networks</h2>
           </div>
           <div className={x.cards}>
@@ -198,7 +198,7 @@ export default function CryptoPage() {
             ))}
           </div>
           <div className={s.warn}>
-            <Icon name="solar:danger-triangle-bold" size={24} color="#DDA90C" />
+            <Icon name="solar:danger-triangle-bold" size={24} color="var(--yellow)" />
             <span>
               <b>Always match the network.</b> Sending a coin on a different network from the one you selected can mean
               the funds are lost for good. When in doubt, send a small test amount first.

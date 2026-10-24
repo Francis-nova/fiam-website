@@ -6,60 +6,70 @@
 }
 
 .channel {
-  background: #f1f1f1;
-  border-radius: 10px;
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
   padding: 24px;
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  color: #042323;
+  color: var(--ink);
+  transition: border-color 0.2s, background-color 0.35s;
 }
-.channelLink:hover { background: #e6e9e9; color: #042323; }
+.channelLink:hover { border-color: var(--green); color: var(--ink); }
 .channelTitle { font-size: 17px; font-weight: 700; }
-.channelDetail { font-size: 15px; color: #3a6662; }
+.channelDetail { font-size: 15px; color: var(--muted); }
 
-.fraud { background: #4c1f1f; color: #ffffff; scroll-margin-top: 96px; }
+.fraud { background: var(--danger-bg); border-color: transparent; color: #ffffff; scroll-margin-top: 96px; }
 .fraudBody { font-size: 15px; line-height: 1.5; color: rgba(255, 255, 255, 0.8); }
 
 .formCard {
-  background: #ffffff;
-  border: 1px solid #e1e5e5;
-  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
   padding: clamp(24px, 3vw, 36px);
   display: flex;
   flex-direction: column;
   gap: 18px;
+  box-shadow: var(--shadow);
 }
-.formTitle { font-size: 22px; font-weight: 700; }
+.formTitle { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
 .form { display: flex; flex-direction: column; gap: 14px; }
-.label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700; }
+.label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 400; color: var(--ink-2); }
 .input {
-  height: 48px;
-  padding: 0 14px;
-  border-radius: 10px;
-  border: 1px solid #d3d9d9;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: var(--r);
+  border: 1.5px solid transparent;
   font-size: 16px;
   font-weight: 400;
   font-family: inherit;
   outline: none;
-  color: #042323;
-  background: #ffffff;
+  color: var(--ink);
+  background: var(--btn-soft);
+  transition: border-color 0.2s, background-color 0.2s;
 }
-.input:focus { border-color: #53bc7b; }
+.input:focus { border-color: var(--green); background: var(--card); }
 .select { padding: 0 12px; }
-.textarea { height: auto; padding: 12px 14px; resize: vertical; }
-.error { font-size: 14px; color: #4c1f1f; }
+.select option { color: #000909; }
+.textarea { height: auto; padding: 14px 16px; resize: vertical; }
+.error { font-size: 14px; color: var(--error); }
 .submit {
-  height: 50px;
-  border-radius: 10px;
+  height: 52px;
+  border-radius: var(--r);
   border: none;
-  background: #042323;
-  color: #ffffff;
+  background: var(--green);
+  color: var(--green-darker);
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: transform 0.2s var(--ease), background-color 0.2s;
 }
-.submit:hover { background: #1f4c44; }
+.submit:hover { background: var(--green-2); }
+.submit:active { transform: scale(0.97); }
+.submit[disabled] { opacity: 0.7; pointer-events: none; }
 
 .sent { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 12px 0; }
-.sentBody { font-size: 16px; line-height: 1.5; color: #3a6662; }
+.sentBody { font-size: 16px; line-height: 1.5; color: var(--muted); }

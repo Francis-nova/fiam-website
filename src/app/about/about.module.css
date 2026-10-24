@@ -6,9 +6,11 @@
 .banner {
   position: relative;
   height: clamp(280px, 38vw, 460px);
-  border-radius: 10px 10px 0 0;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
   overflow: hidden;
-  background: #f1f1f1;
+  background: var(--card);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -27,8 +29,8 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   gap: 48px;
 }
-.storyP { font-size: 18px; line-height: 1.65; color: #3a6662; text-wrap: pretty; }
+.storyP { font-size: 18px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 
-.num { font-size: 36px; font-weight: 700; color: #53bc7b; }
+.num { font-size: 36px; font-weight: 700; color: var(--green); }
 
-.talkTitle { font-size: clamp(24px, 2.8vw, 34px); font-weight: 700; letter-spacing: -0.6px; }
+.talkTitle { font-size: clamp(24px, 2.8vw, 34px); font-weight: 700; letter-spacing: -0.02em; }

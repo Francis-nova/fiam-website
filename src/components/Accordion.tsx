@@ -1,7 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { Icon } from './Icon';
+import { Glyph } from './Glyph';
 import s from './Accordion.module.css';
 
 export type QA = { q: string; a: string };
@@ -21,10 +21,12 @@ export function Accordion({ items, defaultOpen = -1 }: { items: QA[]; defaultOpe
 export function AccordionItem({ item, open, onToggle }: { item: QA; open: boolean; onToggle: () => void }) {
   const id = useId();
   return (
-    <div className={s.item}>
+    <div className={`${s.item} ${open ? s.open : ''}`}>
       <button type="button" className={s.button} aria-expanded={open} aria-controls={id} onClick={onToggle}>
         <span className={s.q}>{item.q}</span>
-        <Icon name={open ? 'solar:minus-circle-linear' : 'solar:add-circle-linear'} size={20} color="#1F4C44" />
+        <span className={s.pm}>
+          <Glyph name="plus" />
+        </span>
       </button>
       {open && (
         <p id={id} className={s.a}>

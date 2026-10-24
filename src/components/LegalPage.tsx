@@ -26,7 +26,7 @@ export function LegalPage({
     <>
       <section className={s.hero}>
         <div className={s.heroInner}>
-          <span className={s.eyebrow}>LEGAL</span>
+          <span className={s.eyebrow}>Legal</span>
           <h1 className={s.title}>{title}</h1>
           <span className={s.updated}>{updated}</span>
         </div>

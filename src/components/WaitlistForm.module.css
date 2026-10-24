@@ -3,49 +3,57 @@
 .input {
   flex: 1 1 220px;
   min-width: 0;
-  height: 48px;
-  padding: 0 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #042323;
-  color: #ffffff;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: var(--r);
+  border: 1.5px solid transparent;
+  background: var(--btn-soft);
+  color: var(--ink);
   font-size: 16px;
   outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
 }
-.input:focus { border-color: #53bc7b; }
-.input::placeholder { color: rgba(255, 255, 255, 0.45); }
+.input:focus { border-color: var(--green); background: var(--card); }
+.input::placeholder { color: var(--muted); }
+.input[aria-invalid='true'] { border-color: var(--error); }
 
 .button {
-  height: 48px;
-  padding: 0 20px;
-  border-radius: 10px;
+  height: 52px;
+  padding: 0 22px;
+  border-radius: var(--r);
   border: none;
-  background: #dda90c;
-  color: #042323;
+  background: var(--green);
+  color: var(--green-darker);
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
   flex: none;
+  transition: transform 0.2s var(--ease), background-color 0.2s;
 }
-.button:hover { background: #e8bc34; }
+.button:hover { background: var(--green-2); }
+.button:active { transform: scale(0.97); }
 
-.error { font-size: 13px; color: #f2b8b8; }
+.error { font-size: 13px; color: var(--error); }
 
 .success {
   display: flex;
   align-items: center;
   gap: 10px;
   background: rgba(83, 188, 123, 0.16);
-  border-radius: 10px;
+  border-radius: var(--r);
   padding: 14px;
   font-size: 15px;
-  color: #ffffff;
+  color: var(--ink);
 }
 
 /* Crypto hero variant */
 .form.crypto { max-width: 480px; }
-.crypto .input,
-.crypto .button { height: 50px; }
-.crypto .input:focus { border-color: #dda90c; }
+.crypto .button { background: var(--yellow); color: #3a2e00; }
+.crypto .button:hover { background: #ffcb33; }
+.crypto .input:focus { border-color: var(--yellow); }
 .success.crypto { align-self: flex-start; padding: 14px 16px; }
+
+@media (max-width: 480px) {
+  .button { flex: 1 1 100%; }
+}
