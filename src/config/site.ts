@@ -3,7 +3,8 @@
  */
 export const site = {
   name: 'Fiam Finance',
-  url: 'https://usefiam.com',
+  // Must match the primary domain on Vercel (the bare domain redirects to www).
+  url: 'https://www.usefiam.com',
   /** Show the crypto "Soon" band on the home page. */
   showCryptoTeaser: true,
 

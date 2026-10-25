@@ -85,5 +85,8 @@ export function wordCount(post: Post) {
 /** At roughly 230 words a minute. */
 export const readMinutes = (post: Post) => Math.max(1, Math.round(wordCount(post) / 230));
 
+/** Full ISO 8601 datetime in Lagos time (WAT), which Google expects in structured data. */
+export const isoDateTime = (date: string) => `${date}T09:00:00+01:00`;
+
 export const formatDate = (iso: string) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });

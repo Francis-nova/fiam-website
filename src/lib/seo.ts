@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from '@/config/site';
 
-/** Absolute URL for a site path ("/features/" → "https://usefiam.com/features/"). */
+/** Absolute URL for a site path ("/features/" → "https://www.usefiam.com/features/"). */
 export const abs = (path: string) => new URL(path, site.url).toString();
 
 // Trailing slash matches trailingSlash: true, so crawlers don't hit a redirect.
@@ -69,6 +69,10 @@ export const organizationLd = {
   ],
   sameAs: [site.playStoreUrl],
 };
+
+/** Byline for blog articles. */
+export const authorName = 'Ellis Awuya';
+export const authorLd = { '@type': 'Person', name: authorName, worksFor: { '@id': orgId } };
 
 export const websiteLd = {
   '@context': 'https://schema.org',

@@ -4,8 +4,8 @@ import { Icon } from '@/components/Icon';
 import { JsonLd } from '@/components/JsonLd';
 import { Breadcrumbs, PostCard, TopicFooter, TopicNav } from '@/components/blog/BlogParts';
 import s from '@/components/blog/blog.module.css';
-import { postPath, posts, postsInTopic, topicPath, topics } from '@/content/blog';
-import { abs, breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
+import { isoDateTime, postPath, posts, postsInTopic, topicPath, topics } from '@/content/blog';
+import { abs, authorLd, breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 
 const title = 'Money Guides for Nigerians';
 const description =
@@ -30,7 +30,15 @@ export default function BlogPage() {
               '@type': 'Blog',
               '@id': abs('/blog/#blog'),
               name: 'Fiam Guides',
-              blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: abs(postPath(p.slug)), datePublished: p.published })),
+              blogPost: posts.map((p) => ({
+                '@type': 'BlogPosting',
+                headline: p.title,
+                url: abs(postPath(p.slug)),
+                image: abs(`${postPath(p.slug)}opengraph-image/`),
+                datePublished: isoDateTime(p.published),
+                dateModified: isoDateTime(p.updated),
+                author: authorLd,
+              })),
             },
           },
           breadcrumbLd([{ name: 'Blog', path: '/blog/' }]),

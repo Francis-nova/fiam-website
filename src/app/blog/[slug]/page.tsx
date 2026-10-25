@@ -6,8 +6,8 @@ import { GooglePlayButton } from '@/components/StoreButtons';
 import { ArticleBody } from '@/components/blog/ArticleBody';
 import { Breadcrumbs, PostMeta, RelatedPosts, TopicFooter } from '@/components/blog/BlogParts';
 import s from '@/components/blog/blog.module.css';
-import { getPost, getTopic, postPath, posts, relatedPosts, topicPath, wordCount } from '@/content/blog';
-import { abs, breadcrumbLd, faqLd, pageMetadata } from '@/lib/seo';
+import { getPost, getTopic, isoDateTime, postPath, posts, relatedPosts, topicPath, wordCount } from '@/content/blog';
+import { abs, authorLd, authorName, breadcrumbLd, faqLd, pageMetadata } from '@/lib/seo';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       ...meta.openGraph,
       type: 'article',
-      publishedTime: post.published,
-      modifiedTime: post.updated,
+      publishedTime: isoDateTime(post.published),
+      modifiedTime: isoDateTime(post.updated),
       section: getTopic(post.topic)!.name,
       tags: post.keywords,
     },
@@ -57,13 +57,13 @@ export default async function ArticlePage({ params }: Props) {
             headline: post.title,
             description: post.description,
             image: abs(`${path}opengraph-image/`),
-            datePublished: post.published,
-            dateModified: post.updated,
+            datePublished: isoDateTime(post.published),
+            dateModified: isoDateTime(post.updated),
             inLanguage: 'en-NG',
             articleSection: topic.name,
             keywords: post.keywords.join(', '),
             wordCount: wordCount(post),
-            author: { '@type': 'Organization', name: 'Fiam Editorial Team', url: abs('/about/') },
+            author: authorLd,
             publisher: { '@id': abs('/#organization') },
             isPartOf: { '@id': abs('/blog/#blog') },
           },
@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: Props) {
           <p className={s.lead}>{post.description}</p>
           <div className={s.byline}>
             <span>
-              By <b>Fiam Editorial Team</b>
+              By <b>{authorName}</b>
             </span>
             <PostMeta post={post} />
           </div>
