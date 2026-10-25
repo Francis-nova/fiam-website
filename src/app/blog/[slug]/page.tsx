@@ -4,10 +4,11 @@ import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
 import { GooglePlayButton } from '@/components/StoreButtons';
 import { ArticleBody } from '@/components/blog/ArticleBody';
-import { Breadcrumbs, PostMeta, RelatedPosts, TopicFooter } from '@/components/blog/BlogParts';
+import { AuthorBox, Breadcrumbs, PostMeta, RelatedPosts, TopicFooter } from '@/components/blog/BlogParts';
 import s from '@/components/blog/blog.module.css';
 import { getPost, getTopic, isoDateTime, postPath, posts, relatedPosts, topicPath, wordCount } from '@/content/blog';
-import { abs, authorLd, authorName, breadcrumbLd, faqLd, pageMetadata } from '@/lib/seo';
+import { author } from '@/content/blog/author';
+import { abs, authorLd, breadcrumbLd, faqLd, pageMetadata } from '@/lib/seo';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -86,7 +87,7 @@ export default async function ArticlePage({ params }: Props) {
           <p className={s.lead}>{post.description}</p>
           <div className={s.byline}>
             <span>
-              By <b>{authorName}</b>
+              By <b>{author.name}</b>
             </span>
             <PostMeta post={post} />
           </div>
@@ -117,6 +118,8 @@ export default async function ArticlePage({ params }: Props) {
                 </details>
               ))}
             </section>
+
+            <AuthorBox />
 
             <aside className={s.cta}>
               <div>

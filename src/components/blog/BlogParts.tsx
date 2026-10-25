@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon } from '@/components/Icon';
 import { formatDate, getTopic, postPath, posts, postsInTopic, readMinutes, topicPath, topics, type Post, type TopicId } from '@/content/blog';
+import { author, authorInitials } from '@/content/blog/author';
 import s from './blog.module.css';
 
 /** Visible breadcrumb trail; pairs with breadcrumbLd on the same page. */
@@ -61,6 +62,44 @@ export function PostCard({ post, headingLevel = 3, featured }: { post: Post; hea
       <p className={s.cardExcerpt}>{post.excerpt}</p>
       <PostMeta post={post} />
     </article>
+  );
+}
+
+/** About-the-author box shown under every article. */
+export function AuthorBox() {
+  const { linkedin, x } = author.links;
+  return (
+    <aside className={s.author} aria-label="About the author">
+      {author.photo ? (
+        <img src={author.photo} alt={author.name} width={72} height={72} className={s.authorPhoto} />
+      ) : (
+        <span className={s.authorPhoto} aria-hidden="true">
+          {authorInitials}
+        </span>
+      )}
+      <div className={s.authorText}>
+        <span className={s.authorLabel}>Written by</span>
+        <b>
+          {author.name}
+          {author.role && <span className={s.authorRole}> · {author.role}</span>}
+        </b>
+        <p>{author.bio}</p>
+        {(linkedin || x) && (
+          <div className={s.authorLinks}>
+            {linkedin && (
+              <a href={linkedin} target="_blank" rel="noopener me" aria-label={`${author.name} on LinkedIn`}>
+                <Icon name="ri:linkedin-fill" size={18} />
+              </a>
+            )}
+            {x && (
+              <a href={x} target="_blank" rel="noopener me" aria-label={`${author.name} on X`}>
+                <Icon name="ri:twitter-x-fill" size={16} />
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </aside>
   );
 }
 

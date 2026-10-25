@@ -222,6 +222,54 @@ a.eyebrow:hover { border-color: var(--green); }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { padding: 0 20px 18px; color: var(--ink-2); font-size: 16px; line-height: 1.65; }
 
+/* Author */
+.author {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 24px;
+  border-radius: var(--r-lg);
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.authorPhoto {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-darker);
+  color: var(--green-light);
+  font-weight: 700;
+  font-size: 24px;
+  box-shadow: 0 0 0 4px rgba(83, 188, 123, 0.18);
+}
+.authorText { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.authorLabel { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.authorText b { font-size: 19px; color: var(--ink); }
+.authorRole { font-weight: 400; color: var(--muted); font-size: 16px; }
+.authorText p { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-top: 2px; }
+.authorLinks { display: flex; gap: 8px; margin-top: 8px; }
+.authorLinks a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn-soft);
+  color: var(--ink);
+  transition: background-color 0.2s, color 0.2s;
+}
+.authorLinks a:hover { background: var(--green); color: var(--green-darker); }
+
+@media (max-width: 500px) {
+  .author { flex-direction: column; }
+}
+
 /* App CTA */
 .cta {
   display: flex;

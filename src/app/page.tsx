@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { site } from '@/config/site';
 import { JsonLd } from '@/components/JsonLd';
 import { faqLd, mobileAppLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { Glyph, Logo } from '@/components/Glyph';
 import { Phone } from '@/components/Phone';
+import { PostCard } from '@/components/blog/BlogParts';
+import b from '@/components/blog/blog.module.css';
+import { posts } from '@/content/blog';
 import { GooglePlayButton, WaitlistButton } from '@/components/StoreButtons';
 import u from '@/components/ui.module.css';
 import { SecurityTabs } from './SecurityTabs';
@@ -38,6 +42,7 @@ export default function HomePage() {
       </section>
       {site.showCryptoTeaser && <Crypto />}
       <Everyday />
+      <Guides />
       <Faq />
       <FinalCta />
     </>
@@ -517,6 +522,29 @@ function Everyday() {
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Guides (latest blog posts) ---------- */
+function Guides() {
+  return (
+    <section id="guides" className={s.sec}>
+      <div className={u.wrap}>
+        <SectionHead eyebrow="Guides" title="Know your money better">
+          Plain-English guides to transfers, scams, limits and crypto in naira.
+        </SectionHead>
+        <div className={`${b.grid} ${s.guides}`} data-rv>
+          {posts.slice(0, 3).map((p) => (
+            <PostCard key={p.slug} post={p} />
+          ))}
+        </div>
+        <div className={u.ctaRow}>
+          <Link href="/blog/" className={`${u.btn} ${u.btnSoft}`}>
+            Read all guides <Glyph name="arrow" />
+          </Link>
         </div>
       </div>
     </section>

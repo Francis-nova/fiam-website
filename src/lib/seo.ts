@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { site } from '@/config/site';
+import { author } from '@/content/blog/author';
 
 /** Absolute URL for a site path ("/features/" → "https://www.usefiam.com/features/"). */
 export const abs = (path: string) => new URL(path, site.url).toString();
@@ -71,8 +72,15 @@ export const organizationLd = {
 };
 
 /** Byline for blog articles. */
-export const authorName = 'Ellis Awuya';
-export const authorLd = { '@type': 'Person', name: authorName, worksFor: { '@id': orgId } };
+const authorProfiles = Object.values(author.links).filter(Boolean);
+export const authorLd = {
+  '@type': 'Person',
+  name: author.name,
+  ...(author.role && { jobTitle: author.role }),
+  ...(author.photo && { image: abs(author.photo) }),
+  ...(authorProfiles.length && { sameAs: authorProfiles }),
+  worksFor: { '@id': orgId },
+};
 
 export const websiteLd = {
   '@context': 'https://schema.org',

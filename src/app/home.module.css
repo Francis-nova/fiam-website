@@ -330,3 +330,6 @@
   .receipt, .txlist { font-size: 13px; }
   .tx .amt { font-size: 13px; }
 }
+
+/* ---------- guides ---------- */
+.guides { margin: 48px 0 36px; text-align: left; }
