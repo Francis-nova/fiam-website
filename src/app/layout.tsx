@@ -33,7 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>
+      {/* Browser extensions (e.g. ColorZilla's cz-shortcut-listen) inject attributes on <body> before hydration. */}
+      <body suppressHydrationWarning>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <SiteNav />
           <main id="top" style={{ flex: 1 }}>
