@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   description:
     'Get your own account number, fund from any bank and send to anyone in Nigeria, with every transfer protected by your PIN. Free on Android.',
   icons: { icon: '/images/fiam-logo.png' },
+  verification: { google: 'yE9VKpXJcIyHsHDF7okmexn-lIyS3778WLnaNJ0MjB4' },
 };
 
 export const viewport: Viewport = {
