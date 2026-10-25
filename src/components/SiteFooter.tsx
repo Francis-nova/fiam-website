@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { site } from '@/config/site';
+import { topicPath, topics } from '@/content/blog';
 import { Logo } from './Glyph';
 import u from './ui.module.css';
 import s from './SiteFooter.module.css';
@@ -31,6 +32,10 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
       { label: 'Values', href: '/about/#values' },
       { label: 'Contact', href: '/contact/' },
     ],
+  },
+  {
+    title: 'Guides',
+    links: [{ label: 'All articles', href: '/blog/' }, ...topics.map((t) => ({ label: t.name, href: topicPath(t.id) }))],
   },
   {
     title: 'Support',

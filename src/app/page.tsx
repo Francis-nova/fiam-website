@@ -1,4 +1,7 @@
+import type { Metadata } from 'next';
 import { site } from '@/config/site';
+import { JsonLd } from '@/components/JsonLd';
+import { faqLd, mobileAppLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { Glyph, Logo } from '@/components/Glyph';
 import { Phone } from '@/components/Phone';
 import { GooglePlayButton, WaitlistButton } from '@/components/StoreButtons';
@@ -6,9 +9,22 @@ import u from '@/components/ui.module.css';
 import { SecurityTabs } from './SecurityTabs';
 import s from './home.module.css';
 
+const title = 'Fiam: Naira Wallet & Instant Bank Transfers in Nigeria';
+const description =
+  'Get your own account number, fund from any Nigerian bank and send money to any bank in seconds, with every transfer protected by your PIN. Free on Android.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/',
+  absoluteTitle: true,
+  keywords: ['naira wallet', 'mobile wallet Nigeria', 'send money to any bank in Nigeria', 'instant bank transfer app', 'account number app Nigeria', 'Fiam app'],
+});
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={[webPageLd({ name: title, description, path: '/' }), mobileAppLd, faqLd(faqs)]} />
       <Hero />
       <Banks />
       <Features />

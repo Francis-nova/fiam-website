@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, faqLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { Accordion } from '@/components/Accordion';
 import { Icon } from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
@@ -7,10 +9,16 @@ import { WaitlistForm } from '@/components/WaitlistForm';
 import x from '@/components/sections.module.css';
 import s from './crypto.module.css';
 
-export const metadata: Metadata = {
-  title: 'Crypto (coming soon)',
-  description: 'Receive, hold and pay out USDT, BTC and ETH in the same wallet as your naira. Join the waitlist for early access.',
-};
+const title = 'USDT, BTC & ETH Wallet in Naira (Soon)';
+const description =
+  'Deposit and pay out USDT, BTC and ETH in the same wallet as your naira. See balances at live naira rates and every fee before you confirm. Join the waitlist.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/crypto/',
+  keywords: ['USDT to naira', 'crypto wallet Nigeria', 'sell USDT in Nigeria', 'BTC to naira', 'TRC20 USDT wallet'],
+});
 
 type Coin = 'usdt' | 'btc' | 'eth';
 const coinIcon = (c: Coin) => `cryptocurrency-color:${c}` as IconName;
@@ -66,6 +74,7 @@ const faqs = [
 export default function CryptoPage() {
   return (
     <>
+      <JsonLd data={[webPageLd({ type: 'WebPage', name: title, description, path: '/crypto/' }), breadcrumbLd([{ name: 'Crypto', path: '/crypto/' }]), faqLd(faqs)]} />
       <section className={x.gradient}>
         <div className={x.blob} style={{ top: -200, right: -140, width: 560, height: 560, background: 'rgba(221,169,12,0.10)' }} />
         <div className={`${x.wrap} ${x.padHero} ${x.split}`} style={{ gap: 48 }}>

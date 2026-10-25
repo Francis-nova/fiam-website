@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { LegalPage, type LegalSection } from '@/components/LegalPage';
 
-export const metadata: Metadata = { title: 'Privacy policy' };
+const title = 'Privacy Policy';
+const description =
+  'How Fiam collects, uses, stores and protects your personal information, and the choices and rights you have over your data.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/privacy-policy/',
+});
 
 const sections: LegalSection[] = [
   {
@@ -203,11 +213,14 @@ const sections: LegalSection[] = [
 
 export default function PrivacyPage() {
   return (
-    <LegalPage
-      title="Privacy policy"
-      updated="Last updated 14 October 2026"
-      sections={sections}
-      other={{ label: 'Terms of use', href: '/terms/' }}
-    />
+    <>
+      <JsonLd data={[webPageLd({ type: 'WebPage', name: title, description, path: '/privacy-policy/' }), breadcrumbLd([{ name: 'Privacy policy', path: '/privacy-policy/' }])]} />
+      <LegalPage
+        title="Privacy policy"
+        updated="Last updated 14 October 2026"
+        sections={sections}
+        other={{ label: 'Terms of use', href: '/terms/' }}
+      />
+    </>
   );
 }

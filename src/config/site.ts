@@ -18,6 +18,7 @@ export const navLinks = [
   { key: 'features', label: 'Features', href: '/features/' },
   { key: 'security', label: 'Security', href: '/security/' },
   { key: 'crypto', label: 'Crypto', href: '/crypto/', soon: true },
+  { key: 'blog', label: 'Blog', href: '/blog/' },
   { key: 'help', label: 'Help', href: '/help/' },
   { key: 'contact', label: 'Contact', href: '/contact/' },
 ] as const;

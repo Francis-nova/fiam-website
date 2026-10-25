@@ -6,15 +6,26 @@ import { SiteNav } from '@/components/SiteNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { WaitlistDialog } from '@/components/WaitlistDialog';
 import { RevealObserver } from '@/components/RevealObserver';
+import { JsonLd } from '@/components/JsonLd';
+import { site } from '@/config/site';
+import { organizationLd, websiteLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: 'Fiam Finance · Your naira, calm and in control',
     template: '%s · Fiam Finance',
   },
   description:
     'Get your own account number, fund from any bank and send to anyone in Nigeria, with every transfer protected by your PIN. Free on Android.',
-  icons: { icon: '/images/fiam-logo.png' },
+  applicationName: site.name,
+  publisher: 'Awuya Digital Limited',
+  category: 'finance',
+  formatDetection: { telephone: false, email: false, address: false },
+  openGraph: { type: 'website', siteName: site.name, locale: 'en_NG' },
+  twitter: { card: 'summary_large_image' },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
+  icons: { icon: '/images/fiam-logo.png', apple: '/images/fiam-logo.png' },
   verification: { google: 'yE9VKpXJcIyHsHDF7okmexn-lIyS3778WLnaNJ0MjB4' },
 };
 
@@ -33,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <JsonLd data={[organizationLd, websiteLd]} />
       </head>
       {/* Browser extensions (e.g. ColorZilla's cz-shortcut-listen) inject attributes on <body> before hydration. */}
       <body suppressHydrationWarning>

@@ -1,7 +1,7 @@
 .footer { background: var(--foot-bg); color: var(--foot-ink); overflow: hidden; transition: background-color 0.35s; }
 .inner { padding-block: 72px 0; }
 
-.top { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(5, minmax(0, 1fr)); gap: 32px; }
+.top { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(6, minmax(0, 1fr)); gap: 28px; }
 .about { display: flex; flex-direction: column; gap: 14px; max-width: 320px; }
 .about p { color: var(--foot-muted); font-size: 15px; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 23px; letter-spacing: -0.02em; color: var(--foot-ink); }

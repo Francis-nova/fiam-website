@@ -1,14 +1,22 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 import Link from 'next/link';
 import { Icon } from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
 import x from '@/components/sections.module.css';
 import s from './security.module.css';
 
-export const metadata: Metadata = {
-  title: 'Security',
-  description: 'Transaction PIN, review before send, identity checks, instant alerts and encrypted data. How Fiam keeps your money safe.',
-};
+const title = 'How Fiam Keeps Your Money Safe';
+const description =
+  'Every Fiam transfer needs your PIN and a review of the recipient name. Identity checks, instant alerts, encryption and account freezes keep your naira safe.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/security/',
+  keywords: ['safe money transfer app Nigeria', 'transaction PIN', 'fraud protection', 'instant debit alerts', 'secure mobile wallet'],
+});
 
 const protections: { icon: IconName; title: string; body: string }[] = [
   { icon: 'solar:lock-keyhole-bold', title: 'Transaction PIN', body: 'A 4-digit PIN, separate from your login, is needed for every transfer.' },
@@ -29,6 +37,7 @@ const tips = [
 export default function SecurityPage() {
   return (
     <>
+      <JsonLd data={[webPageLd({ type: 'WebPage', name: title, description, path: '/security/' }), breadcrumbLd([{ name: 'Security', path: '/security/' }])]} />
       <section className={x.dark}>
         <div
           className={x.blob}

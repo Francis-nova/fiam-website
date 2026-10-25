@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { LegalPage, type LegalSection } from '@/components/LegalPage';
 
-export const metadata: Metadata = { title: 'Terms of use' };
+const title = 'Terms of Use';
+const description =
+  'The terms for using the Fiam app and website: eligibility, your account, transfers, fees and limits, prohibited use and liability.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/terms/',
+});
 
 // Draft copy from the design handoff. Needs legal review before launch.
 const sections: LegalSection[] = [
@@ -49,11 +59,14 @@ const sections: LegalSection[] = [
 
 export default function TermsPage() {
   return (
-    <LegalPage
-      title="Terms of use"
-      updated="Last updated 10 October 2026 · Draft for legal review"
-      sections={sections}
-      other={{ label: 'Privacy policy', href: '/privacy-policy/' }}
-    />
+    <>
+      <JsonLd data={[webPageLd({ type: 'WebPage', name: title, description, path: '/terms/' }), breadcrumbLd([{ name: 'Terms of use', path: '/terms/' }])]} />
+      <LegalPage
+        title="Terms of use"
+        updated="Last updated 10 October 2026 · Draft for legal review"
+        sections={sections}
+        other={{ label: 'Privacy policy', href: '/privacy-policy/' }}
+      />
+    </>
   );
 }

@@ -1,13 +1,21 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 import Link from 'next/link';
 import { Icon } from '@/components/Icon';
 import x from '@/components/sections.module.css';
 import s from './about.module.css';
 
-export const metadata: Metadata = {
-  title: 'About',
-  description: "Money in Nigeria should feel calm. We're building a wallet that's simple, fast and honest about your money.",
-};
+const title = 'About Fiam: A Calmer Way to Move Naira';
+const description =
+  'Fiam is a naira wallet built by Awuya Digital Limited in Lagos. Our promise: clear fees, fast transfers and protection that stays out of your way.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/about/',
+  keywords: ['about Fiam', 'Awuya Digital Limited', 'Nigerian fintech Lagos'],
+});
 
 const promises = [
   ['Clear, always', 'Fees shown before you pay. Names confirmed before you send. No fine print surprises.'],
@@ -18,6 +26,7 @@ const promises = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={[webPageLd({ type: 'AboutPage', name: title, description, path: '/about/' }), breadcrumbLd([{ name: 'About', path: '/about/' }])]} />
       <section className={x.gradient}>
         <div className={`${x.wrap} ${x.stack} ${x.g20} ${s.heroCopy}`}>
           <span className={x.eyebrow}>About Fiam</span>

@@ -1,14 +1,22 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { Icon } from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
 import { PhoneFrame, type Screen } from '@/components/PhoneFrame';
 import x from '@/components/sections.module.css';
 import s from './features.module.css';
 
-export const metadata: Metadata = {
-  title: 'Features',
-  description: 'Fund from any bank, send to any Nigerian bank in seconds and track every naira, all from one wallet.',
-};
+const title = 'Naira Wallet Features: Fund, Send & Track';
+const description =
+  'Get a personal account number, fund your wallet from any Nigerian bank, send to any bank in seconds and track every naira with searchable history and clear limits.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/features/',
+  keywords: ['naira wallet features', 'fund wallet by bank transfer', 'send money to any Nigerian bank', 'transaction history app', 'account tiers and limits'],
+});
 
 function Checks({ items }: { items: string[] }) {
   return (
@@ -53,6 +61,7 @@ const tiers = [
 export default function FeaturesPage() {
   return (
     <>
+      <JsonLd data={[webPageLd({ type: 'WebPage', name: title, description, path: '/features/' }), breadcrumbLd([{ name: 'Features', path: '/features/' }])]} />
       <section className={x.gradient}>
         <div className={x.blob} style={{ top: -200, right: -160, width: 560, height: 560, background: 'rgba(83,188,123,0.13)' }} />
         <div className={`${x.wrap} ${x.padHero} ${x.stack} ${x.g20}`}>

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
 import { site } from '@/config/site';
 import { Icon } from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
@@ -6,10 +8,16 @@ import x from '@/components/sections.module.css';
 import { ContactForm } from './ContactForm';
 import s from './contact.module.css';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Chat in the app, email support, or send us a message. Report fraud or a lost phone and we freeze your account first.',
-};
+const title = 'Contact Fiam Support & Report Fraud';
+const description =
+  'Chat in the Fiam app, email support@usefiam.com or send a message. Report fraud or a lost phone and we freeze your account first, then help you recover.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/contact/',
+  keywords: ['Fiam customer care', 'Fiam support email', 'report fraud Nigeria', 'lost phone bank account freeze'],
+});
 
 // TODO(launch): placeholder addresses from the design; replace with real mailboxes.
 const channels: { icon: IconName; title: string; detail: string; href?: string }[] = [
@@ -22,6 +30,7 @@ const channels: { icon: IconName; title: string; detail: string; href?: string }
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={[webPageLd({ type: 'ContactPage', name: title, description, path: '/contact/' }), breadcrumbLd([{ name: 'Contact', path: '/contact/' }])]} />
       <section className={x.gradient}>
         <div className={`${x.wrap} ${x.padHeroSm} ${x.stack} ${x.g20}`}>
           <span className={x.eyebrow}>Contact</span>
