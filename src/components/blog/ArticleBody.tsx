@@ -11,7 +11,12 @@ export function Inline({ text }: { text: string }) {
   let m: RegExpExecArray | null;
   while ((m = re.exec(text))) {
     if (m.index > last) out.push(text.slice(last, m.index));
-    if (m[1] !== undefined) out.push(<strong key={m.index}>{m[1]}</strong>);
+    if (m[1] !== undefined)
+      out.push(
+        <strong key={m.index}>
+          <Inline text={m[1]} />
+        </strong>,
+      );
     else if (m[3].startsWith('/'))
       out.push(
         <Link key={m.index} href={m[3]}>
@@ -70,6 +75,17 @@ export function ArticleBody({ blocks }: { blocks: Block[] }) {
                   <Inline text={b.text} />
                 </p>
               </aside>
+            );
+          case 'quote':
+            return (
+              <figure key={i} className={s.quote}>
+                <blockquote>
+                  <p>
+                    <Inline text={b.text} />
+                  </p>
+                </blockquote>
+                <figcaption>{b.cite}</figcaption>
+              </figure>
             );
           case 'table':
             return (

@@ -9,9 +9,10 @@ export type Block =
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'callout'; title: string; text: string }
+  | { type: 'quote'; text: string; cite: string }
   | { type: 'table'; head: string[]; rows: string[][] };
 
-export type TopicId = 'sending-money' | 'staying-safe' | 'accounts-and-limits' | 'crypto';
+export type TopicId = 'sending-money' | 'staying-safe' | 'accounts-and-limits' | 'crypto' | 'inside-fiam';
 
 export type Post = {
   slug: string;

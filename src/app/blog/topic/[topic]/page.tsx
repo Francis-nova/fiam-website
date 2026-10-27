@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topic = getTopic((await params).topic);
   if (!topic) return {};
   return pageMetadata({
-    title: `${topic.title}: Guides`,
+    title: topic.seoTitle ?? `${topic.title}: Guides`,
     description: `${topic.description} Guides from Fiam, the naira wallet.`,
     path: topicPath(topic.id),
     keywords: postsInTopic(topic.id).flatMap((p) => p.keywords.slice(0, 2)),

@@ -222,6 +222,12 @@ a.eyebrow:hover { border-color: var(--green); }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { padding: 0 20px 18px; color: var(--ink-2); font-size: 16px; line-height: 1.65; }
 
+/* Pull quote */
+.quote { display: flex; flex-direction: column; gap: 10px; margin: 8px 0; padding-left: 22px; border-left: 4px solid var(--green); }
+.quote blockquote p { font-size: clamp(21px, 2.2vw, 25px); line-height: 1.4; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+.quote figcaption { font-size: 15px; color: var(--muted); }
+.quote figcaption::before { content: '— '; }
+
 /* Author */
 .author {
   display: flex;

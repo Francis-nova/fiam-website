@@ -59,6 +59,13 @@ export default function AboutPage() {
               We&apos;re a small team building for everyday people and small businesses. We&apos;re starting with the basics,
               fund, send and track, and we&apos;ll grow the wallet with you.
             </p>
+            <p className={s.storyP}>
+              Fiam is built by brothers Godwin and Francis Awuya, who grew up in Mafoluku, Oshodi.{' '}
+              <Link href="/blog/why-we-built-fiam-founders-story/" style={{ color: 'var(--green)', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                Read why we built Fiam
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>

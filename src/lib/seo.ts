@@ -64,6 +64,17 @@ export const organizationLd = {
     postalCode: '101233',
     addressCountry: 'NG',
   },
+  foundingDate: '2022',
+  foundingLocation: { '@type': 'Place', name: 'Lagos, Nigeria' },
+  founder: [
+    {
+      '@type': 'Person',
+      name: 'Godwin Awuya',
+      jobTitle: 'CEO and Chief Product Officer',
+      sameAs: ['https://www.linkedin.com/in/awuya-godwin-265678101/'],
+    },
+    { '@type': 'Person', name: 'Francis Awuya', jobTitle: 'CTO and COO', sameAs: ['https://www.linkedin.com/in/francis-awuya/'] },
+  ],
   areaServed: { '@type': 'Country', name: 'Nigeria' },
   contactPoint: [
     { '@type': 'ContactPoint', contactType: 'customer support', email: 'support@usefiam.com', areaServed: 'NG', availableLanguage: 'English' },

@@ -6,10 +6,18 @@ import { protectAccount } from './posts/protect-your-bank-account';
 import { accountTiers } from './posts/account-tiers-and-limits';
 import { usdtNetworks } from './posts/usdt-networks';
 import { openAccount } from './posts/open-a-fiam-account';
+import { whyWeBuiltFiam } from './posts/why-we-built-fiam';
 
 export type { Block, Post, TopicId } from './types';
 
-export type Topic = { id: TopicId; name: string; title: string; description: string };
+export type Topic = {
+  id: TopicId;
+  name: string;
+  title: string;
+  description: string;
+  /** <title> override; defaults to "<title>: Guides". */
+  seoTitle?: string;
+};
 
 /** Topic hubs, in navigation order. */
 export const topics: Topic[] = [
@@ -37,10 +45,17 @@ export const topics: Topic[] = [
     title: 'Crypto, counted in naira',
     description: 'Stablecoins, networks and fees: the basics you need before you move USDT, BTC or ETH.',
   },
+  {
+    id: 'inside-fiam',
+    name: 'Inside Fiam',
+    title: 'Inside Fiam',
+    seoTitle: 'Inside Fiam: Our Story, Founders & News',
+    description: 'The people behind Fiam, why we built it and what we are working on next.',
+  },
 ];
 
 /** Newest first. */
-export const posts: Post[] = [sendMoney, wrongAccount, fakeAlert, protectAccount, accountTiers, usdtNetworks, openAccount].sort((a, b) =>
+export const posts: Post[] = [sendMoney, wrongAccount, fakeAlert, protectAccount, accountTiers, usdtNetworks, openAccount, whyWeBuiltFiam].sort((a, b) =>
   b.published.localeCompare(a.published),
 );
 
@@ -71,6 +86,8 @@ function blockText(b: Block): string {
       return b.items.join(' ');
     case 'callout':
       return `${b.title} ${b.text}`;
+    case 'quote':
+      return `${b.text} ${b.cite}`;
     case 'table':
       return [...b.head, ...b.rows.flat()].join(' ');
     default:
