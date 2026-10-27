@@ -60,7 +60,7 @@ export default function AboutPage() {
               fund, send and track, and we&apos;ll grow the wallet with you.
             </p>
             <p className={s.storyP}>
-              Fiam is built by brothers Godwin and Francis Awuya, who grew up in Mafoluku, Oshodi.{' '}
+              Fiam is built by brothers Godwin and Francis Awuya, who grew up in Lagos, Nigeria.{' '}
               <Link href="/blog/why-we-built-fiam-founders-story/" style={{ color: 'var(--green)', textDecoration: 'underline', textUnderlineOffset: 3 }}>
                 Read why we built Fiam
               </Link>

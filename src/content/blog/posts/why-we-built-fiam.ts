@@ -5,7 +5,7 @@ export const whyWeBuiltFiam: Post = {
   title: 'The call that never should have happened: why two brothers built Fiam',
   seoTitle: 'Fiam Founders: Why Two Brothers Built Fiam',
   description:
-    "Meet Godwin and Francis Awuya, the brothers from Mafoluku, Lagos behind Fiam. Why they built a wallet that protects your money, and what's coming next.",
+    "Meet Godwin and Francis Awuya, the brothers from Lagos, Nigeria behind Fiam. Why they built a wallet that protects your money, and what's coming next.",
   excerpt: 'A pension gone in one phone call. Two brothers who had seen it too often. The story behind Fiam, and the one promise it is built on.',
   topic: 'inside-fiam',
   keywords: ['Fiam founders', 'who owns Fiam', 'Awuya Digital', 'Godwin Awuya', 'Francis Awuya', 'Nigerian fintech', 'bank account fraud'],
@@ -15,7 +15,7 @@ export const whyWeBuiltFiam: Post = {
     { type: 'h2', id: 'the-call', text: 'The call that never should have happened' },
     {
       type: 'p',
-      text: "Call her Mama Titi. She is 68, a retired schoolteacher in Oshodi, and she has kept her pension in the same bank account for twenty years.",
+      text: "Call her Mama Titi. She is 68, a retired schoolteacher in Lagos, and she has kept her pension in the same bank account for twenty years.",
     },
     {
       type: 'p',
@@ -56,10 +56,10 @@ export const whyWeBuiltFiam: Post = {
       text: "Both brothers also worked at Nuclesis (now Rigo), which gave them a shared language for building products long before they built their own. Which raises the obvious question: why didn't they start sooner?",
     },
 
-    { type: 'h2', id: 'mafoluku', text: 'From Mafoluku to Awuya Digital' },
+    { type: 'h2', id: 'lagos', text: 'From Lagos to Awuya Digital' },
     {
       type: 'p',
-      text: "The Awuya brothers grew up in Mafoluku, Oshodi, in the heart of Lagos. It's the kind of neighbourhood where everyone runs some kind of business, everyone sends and receives money every day, and everyone has a story about a transfer that went wrong.",
+      text: "The Awuya brothers grew up in Lagos, Nigeria. It's the kind of city where everyone runs some kind of business, everyone sends and receives money every day, and everyone has a story about a transfer that went wrong.",
     },
     {
       type: 'p',
@@ -167,7 +167,7 @@ export const whyWeBuiltFiam: Post = {
     },
     {
       type: 'p',
-      text: 'Two brothers from Mafoluku, one simple belief: **your money should work for you, and nobody should be able to take it from you.**',
+      text: 'Two brothers from Lagos, one simple belief: **your money should work for you, and nobody should be able to take it from you.**',
     },
     {
       type: 'p',
