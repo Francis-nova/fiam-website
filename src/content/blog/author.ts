@@ -12,9 +12,9 @@ export const author: {
   links: { linkedin?: string; x?: string };
 } = {
   name: 'Ellis Awuya',
-  role: 'Head of Communications',
+  role: 'Content Writer',
   // TODO(author): add photo and profile links once confirmed.
-  bio: 'Ellis leads communications at Fiam. She writes our guides to sending money, staying safe from scams and getting the most from your naira.',
+  bio: 'Ellis is a content writer at Fiam. She writes our guides to sending money, staying safe from scams and getting the most from your naira.',
   links: {},
 };
 
