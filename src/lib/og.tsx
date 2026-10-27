@@ -4,9 +4,13 @@ import { ImageResponse } from 'next/og';
 
 export const ogSize = { width: 1200, height: 630 };
 
-/** Branded 1200×630 social card: eyebrow, headline and the Fiam wordmark. */
+/** Branded 1200×630 social card: eyebrow, headline and the white Fiam logo. */
 export async function ogImage({ eyebrow, title }: { eyebrow: string; title: string }) {
-  const bold = await readFile(join(process.cwd(), 'public/fonts/ProductSans-Bold.ttf'));
+  const [bold, logo] = await Promise.all([
+    readFile(join(process.cwd(), 'public/fonts/ProductSans-Bold.ttf')),
+    readFile(join(process.cwd(), 'public/images/fiam-logo-white.svg')),
+  ]);
+  const logoSrc = `data:image/svg+xml;base64,${logo.toString('base64')}`;
   return new ImageResponse(
     (
       <div
@@ -30,7 +34,7 @@ export async function ogImage({ eyebrow, title }: { eyebrow: string; title: stri
           {title}
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <div style={{ fontSize: 56, color: '#53bc7b', letterSpacing: '-0.04em' }}>fiam</div>
+          <img src={logoSrc} width={238} height={50} alt="" />
           <div style={{ fontSize: 24, color: '#9fb8b2' }}>usefiam.com</div>
         </div>
       </div>

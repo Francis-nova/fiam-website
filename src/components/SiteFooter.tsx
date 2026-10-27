@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { site } from '@/config/site';
 import { topicPath, topics } from '@/content/blog';
-import { Logo } from './Glyph';
+import { LogoLockup } from './Glyph';
 import u from './ui.module.css';
 import s from './SiteFooter.module.css';
 
@@ -61,9 +61,8 @@ export function SiteFooter() {
       <div className={`${u.wrap} ${s.inner}`}>
         <div className={s.top}>
           <div className={s.about}>
-            <Link href="/" className={s.brand}>
-              <Logo />
-              Fiam
+            <Link href="/" className={s.brand} aria-label="Fiam home">
+              <LogoLockup aria-hidden="true" />
             </Link>
             <p>
               A naira wallet for funding, sending and tracking your money. A product of Awuya Digital Limited, {site.address}.

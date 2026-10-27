@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { navLinks, site } from '@/config/site';
-import { Glyph, Logo } from './Glyph';
+import { Glyph, LogoLockup } from './Glyph';
 import u from './ui.module.css';
 import s from './SiteNav.module.css';
 
@@ -66,8 +66,7 @@ export function SiteNav() {
       <header className={`${s.nav} ${scrolled ? s.scrolled : ''} ${open ? s.open : ''}`}>
         <div className={`${u.wrap} ${s.bar}`}>
           <Link href="/" className={s.brand} aria-label="Fiam home">
-            <Logo />
-            Fiam
+            <LogoLockup aria-hidden="true" />
           </Link>
 
           <nav className={s.links} aria-label="Main">
