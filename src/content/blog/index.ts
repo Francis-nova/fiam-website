@@ -5,6 +5,7 @@ import { fakeAlert } from './posts/spot-a-fake-credit-alert';
 import { protectAccount } from './posts/protect-your-bank-account';
 import { accountTiers } from './posts/account-tiers-and-limits';
 import { usdtNetworks } from './posts/usdt-networks';
+import { openAccount } from './posts/open-a-fiam-account';
 
 export type { Block, Post, TopicId } from './types';
 
@@ -39,7 +40,7 @@ export const topics: Topic[] = [
 ];
 
 /** Newest first. */
-export const posts: Post[] = [sendMoney, wrongAccount, fakeAlert, protectAccount, accountTiers, usdtNetworks].sort((a, b) =>
+export const posts: Post[] = [sendMoney, wrongAccount, fakeAlert, protectAccount, accountTiers, usdtNetworks, openAccount].sort((a, b) =>
   b.published.localeCompare(a.published),
 );
 

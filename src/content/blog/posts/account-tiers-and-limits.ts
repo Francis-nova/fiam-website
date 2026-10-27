@@ -64,7 +64,7 @@ export const accountTiers: Post = {
     {
       type: 'ol',
       items: [
-        '**Check your current tier** in your app, usually under Profile, Account or Limits.',
+        '**Check your current tier** in your app, usually under Profile, Account or Limits. New to Fiam? Start with [how to open a Fiam account](/blog/how-to-open-a-fiam-account/).',
         "**Make sure your details match.** The name, date of birth and phone number on your account should match your BVN and NIN records exactly. Mismatches are the most common reason upgrades fail.",
         '**Upload a valid government ID,** such as a national ID card, international passport, driver\'s licence or voter\'s card, and take a clear selfie in good light.',
         '**For the top tier, add proof of address,** such as a recent utility bill or bank statement showing your name and address.',
