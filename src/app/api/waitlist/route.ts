@@ -6,6 +6,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const LISTS = {
   iphone: process.env.BREVO_WAITLIST_LIST_ID ?? '6',
   crypto: process.env.BREVO_CRYPTO_LIST_ID ?? '7',
+  newsletter: process.env.BREVO_NEWSLETTER_LIST_ID ?? '',
 } as const;
 
 export async function POST(req: Request) {
@@ -19,8 +20,8 @@ export async function POST(req: Request) {
   }
 
   const { BREVO_API_KEY } = process.env;
-  if (!BREVO_API_KEY) {
-    console.error('Waitlist: BREVO_API_KEY is not set');
+  if (!BREVO_API_KEY || !LISTS[list as keyof typeof LISTS]) {
+    console.error(`Waitlist: BREVO_API_KEY or the list ID for "${list}" is not set`);
     return Response.json({ error: 'Waitlist is not configured' }, { status: 500 });
   }
 

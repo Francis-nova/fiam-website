@@ -5,6 +5,7 @@ import './globals.css';
 import { SiteNav } from '@/components/SiteNav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { WaitlistDialog } from '@/components/WaitlistDialog';
+import { NewsletterDialog } from '@/components/NewsletterDialog';
 import { RevealObserver } from '@/components/RevealObserver';
 import { JsonLd } from '@/components/JsonLd';
 import { site } from '@/config/site';
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteFooter />
         </div>
         <WaitlistDialog />
+        <NewsletterDialog />
         <RevealObserver />
       </body>
     </html>

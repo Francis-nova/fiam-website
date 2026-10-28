@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { site } from '@/config/site';
 import { topicPath, topics } from '@/content/blog';
-import { LogoLockup } from './Glyph';
+import { Glyph, LogoLockup } from './Glyph';
 import u from './ui.module.css';
 import s from './SiteFooter.module.css';
 
@@ -83,7 +83,10 @@ export function SiteFooter() {
         </div>
         <div className={s.bottom}>
           <span>© 2026 Awuya Digital Limited. All rights reserved.</span>
-          <span>usefiam.com</span>
+          <button className={s.flink} type="button" data-newsletter>
+            <Glyph name="bell" />
+            Subscribe to our newsletter
+          </button>
         </div>
         <div className={s.wordmark} aria-hidden="true">
           fiam
