@@ -18,6 +18,26 @@
 }
 .channelLink:hover { border-color: var(--green); color: var(--ink); }
 .channelTitle { font-size: 17px; font-weight: 700; }
+
+.followCard { flex-wrap: nowrap; }
+.socialList { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.socialPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 10px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.socialPill:hover { border-color: var(--green); transform: translateY(-1px); }
+.socialPill:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.socialPill svg { color: var(--green); }
+.socialPill span { display: flex; flex-direction: column; line-height: 1.2; }
+.socialPill b { font-size: 14px; }
+.socialPill small { font-size: 12px; color: var(--muted); }
 .channelDetail { font-size: 15px; color: var(--muted); }
 
 .fraud { background: var(--danger-bg); border-color: transparent; color: #ffffff; scroll-margin-top: 96px; }

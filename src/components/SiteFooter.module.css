@@ -11,6 +11,20 @@
 .top ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
 .top ul a { transition: color 0.2s; }
 .top ul a:hover { color: var(--green-light); }
+.top .social { flex-direction: row; gap: 10px; margin-top: 6px; }
+.social a {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--foot-ink);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.top .social a:hover { background: var(--green); border-color: var(--green); color: #042323; transform: translateY(-2px); }
+.social a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
 .bottom {
   display: flex;

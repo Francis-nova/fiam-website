@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { site } from '@/config/site';
+import { site, socialLinks } from '@/config/site';
 import { author } from '@/content/blog/author';
 
 /** Absolute URL for a site path ("/features/" → "https://www.usefiam.com/features/"). */
@@ -79,7 +79,7 @@ export const organizationLd = {
   contactPoint: [
     { '@type': 'ContactPoint', contactType: 'customer support', email: 'support@usefiam.com', areaServed: 'NG', availableLanguage: 'English' },
   ],
-  sameAs: [site.playStoreUrl],
+  sameAs: [site.playStoreUrl, ...socialLinks.map((l) => l.href)],
 };
 
 /** Byline for blog articles. */

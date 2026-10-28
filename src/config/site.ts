@@ -10,10 +10,15 @@ export const site = {
 
   address: 'Ikeja Town Square, Obafemi Awolowo Wy, Ikeja, 101233, Lagos',
 
-  // TODO(launch): replace with the real social profiles.
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.usefiam',
-  social: { x: '#', instagram: '#', linkedin: '#' },
 };
+
+/** Fiam's social profiles, shown in the footer and on the contact page. */
+export const socialLinks = [
+  { label: 'Instagram', handle: '@fiamfinance', href: 'https://www.instagram.com/fiamfinance/', icon: 'ri:instagram-line' },
+  { label: 'LinkedIn', handle: 'Fiam Finance', href: 'https://www.linkedin.com/company/fiam-finance', icon: 'ri:linkedin-fill' },
+  { label: 'TikTok', handle: '@fiamfinance', href: 'https://www.tiktok.com/@fiamfinance', icon: 'ri:tiktok-fill' },
+] as const;
 
 export const navLinks = [
   { key: 'features', label: 'Features', href: '/features/' },

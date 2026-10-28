@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { site } from '@/config/site';
+import { site, socialLinks } from '@/config/site';
 import { topicPath, topics } from '@/content/blog';
 import { Glyph, LogoLockup } from './Glyph';
+import { Icon } from './Icon';
 import u from './ui.module.css';
 import s from './SiteFooter.module.css';
 
@@ -67,6 +68,15 @@ export function SiteFooter() {
             <p>
               A naira wallet for funding, sending and tracking your money. A product of Awuya Digital Limited, {site.address}.
             </p>
+            <ul className={s.social} aria-label="Fiam on social media">
+              {socialLinks.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} target="_blank" rel="noopener noreferrer" aria-label={`Fiam on ${l.label}`} title={l.label}>
+                    <Icon name={l.icon} size={20} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           {columns.map((col) => (
             <div key={col.title}>

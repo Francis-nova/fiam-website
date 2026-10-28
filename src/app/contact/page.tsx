@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbLd, pageMetadata, webPageLd } from '@/lib/seo';
-import { site } from '@/config/site';
+import { site, socialLinks } from '@/config/site';
 import { Icon } from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
 import x from '@/components/sections.module.css';
@@ -21,7 +21,6 @@ export const metadata: Metadata = pageMetadata({
 
 // TODO(launch): placeholder addresses from the design; replace with real mailboxes.
 const channels: { icon: IconName; title: string; detail: string; href?: string }[] = [
-  { icon: 'solar:chat-round-dots-bold', title: 'Chat in the app', detail: 'Profile → Help & support' },
   { icon: 'solar:letter-bold', title: 'Email support', detail: 'support@usefiam.com', href: 'mailto:support@usefiam.com' },
   { icon: 'solar:case-round-bold', title: 'Partnerships & press', detail: 'hello@usefiam.com', href: 'mailto:hello@usefiam.com' },
   { icon: 'solar:map-point-bold', title: 'Visit us', detail: site.address },
@@ -66,6 +65,28 @@ export default function ContactPage() {
                 </div>
               );
             })}
+            <div className={`${s.channel} ${s.followCard}`}>
+              <Icon name="solar:heart-bold" size={26} color="var(--green)" />
+              <div className={x.stack} style={{ gap: 12, minWidth: 0 }}>
+                <div className={x.stack} style={{ gap: 4 }}>
+                  <span className={s.channelTitle}>Follow Fiam</span>
+                  <span className={s.channelDetail}>Product news, money tips and updates.</span>
+                </div>
+                <ul className={s.socialList}>
+                  {socialLinks.map((l) => (
+                    <li key={l.label}>
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className={s.socialPill}>
+                        <Icon name={l.icon} size={18} />
+                        <span>
+                          <b>{l.label}</b>
+                          <small>{l.handle}</small>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             <div id="fraud" className={`${s.channel} ${s.fraud}`}>
               <Icon name="solar:shield-warning-bold" size={26} color="#FFFFFF" />
               <div className={x.stack} style={{ gap: 6 }}>
