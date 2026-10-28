@@ -7,6 +7,7 @@ import { accountTiers } from './posts/account-tiers-and-limits';
 import { usdtNetworks } from './posts/usdt-networks';
 import { openAccount } from './posts/open-a-fiam-account';
 import { whyWeBuiltFiam } from './posts/why-we-built-fiam';
+import { reportFraud } from './posts/report-fraudulent-transaction';
 
 export type { Block, Post, TopicId } from './types';
 
@@ -55,7 +56,7 @@ export const topics: Topic[] = [
 ];
 
 /** Newest first. */
-export const posts: Post[] = [sendMoney, wrongAccount, fakeAlert, protectAccount, accountTiers, usdtNetworks, openAccount, whyWeBuiltFiam].sort((a, b) =>
+export const posts: Post[] = [sendMoney, wrongAccount, fakeAlert, protectAccount, accountTiers, usdtNetworks, openAccount, whyWeBuiltFiam, reportFraud].sort((a, b) =>
   b.published.localeCompare(a.published),
 );
 
