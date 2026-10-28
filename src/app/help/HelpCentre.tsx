@@ -22,7 +22,9 @@ export function HelpCentre() {
       <section className={x.gradient}>
         <div className={`${x.wrap} ${x.narrow} ${x.padHeroSm} ${s.hero}`}>
           <span className={x.eyebrow}>Help centre</span>
-          <img src="/images/ob-login-hero.png" alt="" width={1624} height={1720} className={s.heroArt} />
+          <span className={s.artWrap}>
+            <img src="/images/bird-help.webp" alt="" width={640} height={600} className={s.heroArt} />
+          </span>
           <h1 className={s.title}>How can we help?</h1>
           <div className={s.search}>
             <Icon name="solar:magnifer-linear" size={20} color="var(--muted)" className={s.searchIcon} />

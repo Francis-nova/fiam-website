@@ -1,6 +1,41 @@
 .hero { position: relative; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
 .hero > span:first-child { align-self: center; }
-.heroArt { height: 160px; width: auto; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.3)); }
+.artWrap {
+  --inner: 220px;
+  --offset: 44px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 16px 0;
+  /* Room for the outer ring between the eyebrow above and the heading below. */
+  margin: 48px 0;
+}
+/* Glow and three rings behind the mascot. */
+.artWrap::before,
+.artWrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--ring);
+  pointer-events: none;
+}
+/* Soft glow plus the outermost ring. */
+.artWrap::before {
+  width: calc(var(--inner) + var(--offset) * 4);
+  background: radial-gradient(closest-side, var(--glow-a), transparent);
+}
+/* Inner ring (border) and middle ring (outline). */
+.artWrap::after {
+  width: var(--inner);
+  outline: 1px solid var(--ring);
+  outline-offset: var(--offset);
+}
+.artWrap > * { position: relative; z-index: 1; }
+.heroArt { height: 260px; width: auto; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.3)); }
 .title {
   font-size: clamp(38px, 5.4vw, 60px);
   font-weight: 700;

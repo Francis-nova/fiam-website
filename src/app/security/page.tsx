@@ -52,8 +52,7 @@ export default function SecurityPage() {
             </p>
           </div>
           <div className={s.art}>
-            <div className={x.blob} style={{ top: -80, left: -60, width: 300, height: 300, background: 'rgba(83,188,123,0.16)' }} />
-            <img src="/images/ob-approved.png" alt="" width={393} height={648} />
+            <img src="/images/bird-guard.webp" alt="The Fiam falcon guarding a glowing shield" width={640} height={749} />
           </div>
         </div>
       </section>

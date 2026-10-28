@@ -1,21 +1,42 @@
 .art {
+  --inner: clamp(240px, 26vw, 330px);
+  --offset: clamp(48px, 6vw, 80px);
   position: relative;
   height: clamp(300px, 34vw, 420px);
-  border: 1px solid var(--line);
-  border-radius: var(--r-xl);
-  overflow: hidden;
-  background: var(--card);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
-.art::before {
+/* Glow and three rings behind the mascot. */
+.art::before,
+.art::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(60% 55% at 50% 75%, var(--glow-a), transparent 70%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--ring);
+  pointer-events: none;
 }
+/* Soft glow plus the outermost ring. */
+.art::before {
+  width: calc(var(--inner) + var(--offset) * 4);
+  background: radial-gradient(closest-side, var(--glow-a), transparent);
+}
+/* Inner ring (border) and middle ring (outline). */
+.art::after {
+  width: var(--inner);
+  outline: 1px solid var(--ring);
+  outline-offset: var(--offset);
+}
+.art > * { position: relative; z-index: 1; }
 .art img { position: relative; height: 92%; width: auto; }
+/* Stacked layout (below two 420px columns): keep the outer ring clear of the lead paragraph above. */
+@media (max-width: 935px) {
+  .art { margin-top: 24px; }
+}
 
 .tipsGrid {
   display: grid;

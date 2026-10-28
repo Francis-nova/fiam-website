@@ -39,10 +39,13 @@ export default function AboutPage() {
         </div>
         <div className={x.wrap}>
           <div className={s.banner}>
-            <div className={x.blob} style={{ top: -120, left: '50%', marginLeft: -260, width: 520, height: 520, background: 'rgba(83,188,123,0.14)' }} />
-            <img src="/images/ob-splash.png" alt="" width={314} height={426} style={{ height: '96%', maxWidth: '40%' }} />
-            <img src="/images/ob-approved.png" alt="" width={393} height={648} style={{ height: '88%', maxWidth: '28%' }} />
-            <img src="/images/ob-login-hero.png" alt="" width={1624} height={1720} style={{ height: '90%', maxWidth: '34%' }} />
+            <img
+              src="/images/bird-fly.webp"
+              alt="The Fiam falcon gliding calmly"
+              width={1100}
+              height={507}
+              style={{ height: 'auto', width: 'min(760px, 88%)', alignSelf: 'center', position: 'relative' }}
+            />
           </div>
         </div>
       </section>

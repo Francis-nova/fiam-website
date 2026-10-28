@@ -4,18 +4,44 @@
 }
 
 .banner {
+  --inner: clamp(220px, 30vw, 380px);
+  --offset: clamp(40px, 5vw, 64px);
   position: relative;
   height: clamp(280px, 38vw, 460px);
-  border: 1px solid var(--line);
-  border-bottom: 0;
-  border-radius: var(--r-xl) var(--r-xl) 0 0;
-  overflow: hidden;
-  background: var(--card);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   gap: clamp(8px, 4vw, 64px);
   padding: 24px 24px 0;
+}
+/* Glow and three rings behind the mascot. */
+.banner::before,
+.banner::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--ring);
+  pointer-events: none;
+}
+/* Soft glow plus the outermost ring. */
+.banner::before {
+  width: calc(var(--inner) + var(--offset) * 4);
+  background: radial-gradient(closest-side, var(--glow-a), transparent);
+}
+/* Inner ring (border) and middle ring (outline). */
+.banner::after {
+  width: var(--inner);
+  outline: 1px solid var(--ring);
+  outline-offset: var(--offset);
+}
+.banner > * { position: relative; z-index: 1; }
+/* At the minimum banner height the outer ring would touch the intro's last line. */
+@media (max-width: 640px) {
+  .banner { margin-top: 16px; }
 }
 .banner img {
   position: relative;

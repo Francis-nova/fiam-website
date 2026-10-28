@@ -124,7 +124,7 @@ export function NewsletterDialog() {
             <i style={{ width: 500, height: 500 }} />
           </span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={s.mascot} src="/images/nl-mascot.webp" width={600} height={726} alt="" loading="lazy" />
+          <img className={s.mascot} src="/images/nl-mascot.webp" width={600} height={660} alt="" loading="lazy" />
           <div className={`${s.fc} ${s.c1}`}>
             <span className={s.dot} style={{ background: '#53BC7B', color: '#042323' }}>
               <Glyph name="down" />
