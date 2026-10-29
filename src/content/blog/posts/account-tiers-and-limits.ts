@@ -10,7 +10,7 @@ export const accountTiers: Post = {
   topic: 'accounts-and-limits',
   keywords: ['account tiers', 'transfer limits', 'BVN', 'NIN', 'KYC', 'raise account limit', 'transaction PIN'],
   published: '2026-10-25',
-  updated: '2026-10-25',
+  updated: '2026-10-29',
   body: [
     {
       type: 'p',
@@ -39,7 +39,7 @@ export const accountTiers: Post = {
     },
     {
       type: 'p',
-      text: "Exact naira limits differ between banks and wallets and change when regulations are updated, so always check the current figure in your app rather than relying on a number you read online.",
+      text: "Exact naira limits differ between banks and wallets and change when regulations are updated, so always check the current figure in your app rather than relying on a number you read online. For the CBN figures behind each tier, see [how much a Tier 3 account can hold](/blog/what-tier-1-2-3-mean-tier-3-account-limit/).",
     },
     {
       type: 'callout',
