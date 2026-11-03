@@ -1,18 +1,21 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useId, useState, type FormEvent } from 'react';
 import { Icon } from '@/components/Icon';
+import { useBotGuard } from '@/components/useBotGuard';
+import { CONTACT_TOPICS, NEVER_SHARE, TOPIC_NAMES, type ContactTopic } from '@/config/contactTopics';
 import s from './contact.module.css';
 
-const TOPICS = ['Account help', 'Transfers & funding', 'Fraud or lost phone', 'Partnerships & press', 'Something else'];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function ContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', topic: TOPICS[0], msg: '' });
+  const [form, setForm] = useState({ name: '', email: '', topic: TOPIC_NAMES[0] as string, msg: '' });
   const [error, setError] = useState(false);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
+  const guard = useBotGuard('contact');
+  const hintId = useId();
 
   const field = (k: keyof typeof form) => ({
     value: form[k],
@@ -32,7 +35,7 @@ export function ContactForm() {
       const res = await fetch('/api/contact/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, ...(await guard.proof()) }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setSent(true);
@@ -67,16 +70,26 @@ export function ContactForm() {
         </label>
         <label className={s.label}>
           Topic
-          <select className={`${s.input} ${s.select}`} {...field('topic')}>
-            {TOPICS.map((t) => (
+          <select className={`${s.input} ${s.select}`} aria-describedby={hintId} {...field('topic')}>
+            {TOPIC_NAMES.map((t) => (
               <option key={t}>{t}</option>
             ))}
           </select>
         </label>
+        <div id={hintId} className={s.hint} aria-live="polite">
+          <span className={s.hintTitle}>To help us sort this quickly, please include:</span>
+          <ul>
+            {CONTACT_TOPICS[form.topic as ContactTopic].map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+          <span className={s.hintWarn}>{NEVER_SHARE}</span>
+        </div>
         <label className={s.label}>
           Message
           <textarea className={`${s.input} ${s.textarea}`} rows={5} {...field('msg')} />
         </label>
+        {guard.fields}
         {error && (
           <span className={s.error} role="alert">
             Please fill in every field with a valid email.
@@ -84,7 +97,7 @@ export function ContactForm() {
         )}
         {failed && (
           <span className={s.error} role="alert">
-            Something went wrong. Please try again or email support@usefiam.com.
+            Something went wrong. Please try again or email hello@usefiam.com.
           </span>
         )}
         <button type="submit" className={s.submit} disabled={sending}>

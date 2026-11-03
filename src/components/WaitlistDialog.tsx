@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Glyph } from './Glyph';
+import { useBotGuard } from './useBotGuard';
 import u from './ui.module.css';
 import s from './WaitlistDialog.module.css';
 
@@ -17,6 +18,7 @@ export function WaitlistDialog() {
   const [sending, setSending] = useState(false);
   const [joined, setJoined] = useState('');
   const [failed, setFailed] = useState(false);
+  const guard = useBotGuard('waitlist');
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -50,7 +52,7 @@ export function WaitlistDialog() {
       const res = await fetch('/api/waitlist/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: nameRef.current?.value.trim() ?? '', email, list: 'iphone' }),
+        body: JSON.stringify({ name: nameRef.current?.value.trim() ?? '', email, list: 'iphone', ...(await guard.proof()) }),
       });
       if (!res.ok) throw new Error(String(res.status));
     } catch {
@@ -115,6 +117,7 @@ export function WaitlistDialog() {
                   {error}
                 </span>
               </div>
+              {guard.fields}
               {failed && (
                 <span className={s.err} role="alert">
                   Something went wrong. Please try again in a moment.

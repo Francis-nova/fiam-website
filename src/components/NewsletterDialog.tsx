@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import { Glyph, Logo } from './Glyph';
+import { useBotGuard } from './useBotGuard';
 import u from './ui.module.css';
 import w from './WaitlistDialog.module.css';
 import s from './NewsletterDialog.module.css';
@@ -36,6 +37,7 @@ export function NewsletterDialog() {
   const [sending, setSending] = useState(false);
   const [subscribed, setSubscribed] = useState('');
   const [failed, setFailed] = useState(false);
+  const guard = useBotGuard('waitlist');
 
   useEffect(() => {
     function open() {
@@ -96,7 +98,7 @@ export function NewsletterDialog() {
       const res = await fetch('/api/waitlist/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, list: 'newsletter' }),
+        body: JSON.stringify({ email, list: 'newsletter', ...(await guard.proof()) }),
       });
       if (!res.ok) throw new Error(String(res.status));
     } catch {
@@ -212,6 +214,7 @@ export function NewsletterDialog() {
                     {sending ? 'Subscribing…' : 'Subscribe'}
                   </button>
                 </div>
+                {guard.fields}
                 <span className={`${w.err} ${s.err}`} id="nlErr" role="alert">
                   {error || (failed && 'Something went wrong. Please try again in a moment.')}
                 </span>

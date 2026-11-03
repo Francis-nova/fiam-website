@@ -55,7 +55,7 @@ export const organizationLd = {
   legalName: 'Awuya Digital Limited',
   url: site.url,
   logo: abs('/images/fiam-logo.png'),
-  email: 'support@usefiam.com',
+  email: 'hello@usefiam.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Ikeja Town Square, Obafemi Awolowo Way',
@@ -77,7 +77,7 @@ export const organizationLd = {
   ],
   areaServed: { '@type': 'Country', name: 'Nigeria' },
   contactPoint: [
-    { '@type': 'ContactPoint', contactType: 'customer support', email: 'support@usefiam.com', areaServed: 'NG', availableLanguage: 'English' },
+    { '@type': 'ContactPoint', contactType: 'customer support', email: 'hello@usefiam.com', areaServed: 'NG', availableLanguage: 'English' },
   ],
   sameAs: [site.playStoreUrl, ...socialLinks.map((l) => l.href)],
 };

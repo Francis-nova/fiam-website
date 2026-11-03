@@ -75,6 +75,20 @@
 .select { padding: 0 12px; }
 .select option { color: #000909; }
 .textarea { height: auto; padding: 14px 16px; resize: vertical; }
+.hint {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.hintTitle { color: var(--ink-2); font-weight: 700; }
+.hint ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 2px; }
+.hintWarn { color: var(--ink-2); }
 .error { font-size: 14px; color: var(--error); }
 .submit {
   height: 52px;

@@ -10,7 +10,7 @@ import s from './contact.module.css';
 
 const title = 'Contact Fiam Support & Report Fraud';
 const description =
-  'Chat in the Fiam app, email support@usefiam.com or send a message. Report fraud or a lost phone and we freeze your account first, then help you recover.';
+  'Email hello@usefiam.com or send us a message. Report fraud or a lost phone and we freeze your account first, then help you recover.';
 
 export const metadata: Metadata = pageMetadata({
   title,
@@ -21,8 +21,7 @@ export const metadata: Metadata = pageMetadata({
 
 // TODO(launch): placeholder addresses from the design; replace with real mailboxes.
 const channels: { icon: IconName; title: string; detail: string; href?: string }[] = [
-  { icon: 'solar:letter-bold', title: 'Email support', detail: 'support@usefiam.com', href: 'mailto:support@usefiam.com' },
-  { icon: 'solar:case-round-bold', title: 'Partnerships & press', detail: 'hello@usefiam.com', href: 'mailto:hello@usefiam.com' },
+  { icon: 'solar:letter-bold', title: 'Email us', detail: 'hello@usefiam.com', href: 'mailto:hello@usefiam.com' },
   { icon: 'solar:map-point-bold', title: 'Visit us', detail: site.address },
 ];
 
@@ -37,7 +36,7 @@ export default function ContactPage() {
             We&apos;re here when you need us.
           </h1>
           <p className={x.lead} style={{ maxWidth: 560 }}>
-            For account questions, the fastest way is chat in the app. For everything else, use the form below.
+            Send us a message with the form below and we'll reply by email.
           </p>
         </div>
       </section>

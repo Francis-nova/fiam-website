@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent } from 'react';
 import { Icon } from './Icon';
+import { useBotGuard } from './useBotGuard';
 import s from './WaitlistForm.module.css';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,6 +27,7 @@ export function WaitlistForm({
   const [joined, setJoined] = useState(false);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
+  const guard = useBotGuard('waitlist');
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -37,7 +39,7 @@ export function WaitlistForm({
       const res = await fetch('/api/waitlist/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), list: variant === 'crypto' ? 'crypto' : 'iphone' }),
+        body: JSON.stringify({ email: email.trim(), list: variant === 'crypto' ? 'crypto' : 'iphone', ...(await guard.proof()) }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setJoined(true);
@@ -77,6 +79,7 @@ export function WaitlistForm({
         <button type="submit" className={s.button} disabled={sending}>
           {sending ? 'Joining…' : buttonLabel}
         </button>
+        {guard.fields}
       </form>
       {error && (
         <span id={errorId} className={s.error}>

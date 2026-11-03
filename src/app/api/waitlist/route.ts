@@ -1,3 +1,5 @@
+import { guardForm } from '@/lib/botGuard';
+
 export const runtime = 'nodejs';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -18,6 +20,9 @@ export async function POST(req: Request) {
   if (!EMAIL_RE.test(email) || email.length > 254 || name.length > 100 || !(list in LISTS)) {
     return Response.json({ error: 'Invalid form data' }, { status: 400 });
   }
+
+  const blocked = await guardForm(req, body, 'waitlist', { max: 10, windowMs: 10 * 60_000 });
+  if (blocked) return blocked;
 
   const { BREVO_API_KEY } = process.env;
   if (!BREVO_API_KEY || !LISTS[list as keyof typeof LISTS]) {
